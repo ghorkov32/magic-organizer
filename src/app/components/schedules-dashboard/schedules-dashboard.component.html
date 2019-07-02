@@ -1,0 +1,4 @@
+<app-schedule-adder></app-schedule-adder>
+<div *ngFor="let schedule of (schedules$ | async)">
+  <app-schedule [schedule]="schedule"></app-schedule>
+</div>
