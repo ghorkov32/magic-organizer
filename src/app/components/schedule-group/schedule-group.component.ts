@@ -4,7 +4,7 @@ import { ScheduleGroupModel } from 'src/app/models/schedule-group';
 @Component({
   selector: 'app-schedule-group',
   templateUrl: './schedule-group.component.html',
-  styleUrls: ['./schedule-group.component.css']
+  styleUrls: ['./schedule-group.component.scss']
 })
 export class ScheduleGroupComponent implements OnInit {
 

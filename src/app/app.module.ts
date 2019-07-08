@@ -11,6 +11,12 @@ import { ScheduleAdderComponent } from './components/schedule-adder/schedule-add
 import { CalendarsListComponent } from './components/calendars-list/calendars-list.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ScheduleGroupComponent } from './components/schedule-group/schedule-group.component';
+import { DayTimePickerComponent } from './components/day-time-picker/day-time-picker.component';
+import { MatSelectModule } from '@angular/material/select';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MccTimerPickerModule } from 'material-community-components';
+import { MatInputModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,17 +26,25 @@ import { ScheduleGroupComponent } from './components/schedule-group/schedule-gro
     ScheduleAdderComponent,
     CalendarsListComponent,
     CalendarComponent,
-    ScheduleGroupComponent
+    ScheduleGroupComponent,
+    DayTimePickerComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
+    MatSelectModule,
+    MccTimerPickerModule,
+    FlexLayoutModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

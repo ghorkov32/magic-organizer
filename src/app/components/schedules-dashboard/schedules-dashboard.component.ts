@@ -6,7 +6,7 @@ import { ScheduleGroupModel } from 'src/app/models/schedule-group';
 @Component({
   selector: 'app-schedules-dashboard',
   templateUrl: './schedules-dashboard.component.html',
-  styleUrls: ['./schedules-dashboard.component.css']
+  styleUrls: ['./schedules-dashboard.component.scss']
 })
 export class SchedulesDashboardComponent implements OnInit {
 
