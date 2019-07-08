@@ -6,7 +6,7 @@ export class AddScheduleGroup {
   constructor(public payload: ScheduleGroupModel) { }
 }
 
-export class AddSchedule {
+export class AddScheduleToCurrent {
   public static readonly type = '[SchedulesGroups] Add schedule';
   constructor(public payload: ScheduleModel) { }
 }
@@ -16,7 +16,7 @@ export class RemoveScheduleGroup {
   constructor(public groupIndex: number) { }
 }
 
-export class RemoveSchedule {
+export class RemoveScheduleFromCurrent {
   public static readonly type = '[SchedulesGroups] Remove schedule';
   constructor(public group: ScheduleGroupModel, public scheduleIndex: ScheduleModel) { }
 }

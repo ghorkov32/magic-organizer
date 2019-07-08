@@ -1,8 +1,14 @@
-<h4 i18n>Select day of the week and time</h4>
 <div>
-  <form [formGroup]="form" class="example-form" flex fxLayout="row">
+  <form
+    [formGroup]="dayTimePickerForm"
+    ngxsForm="scheduleForm.timepickerForm"
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayout.sm="column"
+    fxFlex
+  >
     <div>
-      <mat-form-field style="width:80%">
+      <mat-form-field>
         <mat-label>Day of the week</mat-label>
         <mat-select formControlName="dayOfTheWeek">
           <mat-option i18n value="1">Monday</mat-option>
@@ -23,6 +29,7 @@
           [mccTimerPickerFormat]="'24'"
         ></mcc-timer-picker>
         <input
+          i18n
           matInput
           mccTimerPickerOrigin
           #startTime="mccTimerPickerOrigin"
@@ -39,6 +46,7 @@
           [mccTimerPickerFormat]="'24'"
         ></mcc-timer-picker>
         <input
+          i18n
           matInput
           mccTimerPickerOrigin
           #endTime="mccTimerPickerOrigin"
@@ -47,7 +55,10 @@
         />
       </mat-form-field>
     </div>
+    <div *ngIf="">
+      <button mat-raised-button color="primary" (click)="submit()" i18n>Add</button>
+      <button mat-raised-button color="accent" (click)="clear()" i18n>Clear</button>
+    </div>
   </form>
 </div>
 
-<pre>{{form.value | json}}</pre>

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Select} from '@ngxs/store';
+import {SchedulesGroupState} from '../../states/schedules/schedules.state';
+import {ScheduleGroupModel} from '../../models/schedule-group';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-schedule-adder',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleAdderComponent implements OnInit {
 
-  constructor() { }
+  @Select(SchedulesGroupState.getCurrentSchedule)
+  currentSchedule: ScheduleGroupModel;
+
+  scheduleAdderForm: FormGroup;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.scheduleAdderForm = new FormGroup({
+      className: new FormControl('', [Validators.required]),
+      priority: new FormControl('', [Validators.required]),
+    });
   }
 
 }

@@ -15,7 +15,8 @@ import { DayTimePickerComponent } from './components/day-time-picker/day-time-pi
 import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MccTimerPickerModule } from 'material-community-components';
-import { MatInputModule } from '@angular/material';
+import {MatCardModule, MatInputModule} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScheduleFormState } from './states/schedule-form/schedule-form.state';
 import { SchedulesGroupState } from './states/schedules/schedules.state';
@@ -34,6 +35,7 @@ const ANGULAR_MODULES = [
 const MATERIAL_MODULES = [
   MatSelectModule,
   MatInputModule,
+  MatButtonModule,
 ];
 
 const OTHER_MODULES = [
@@ -72,7 +74,8 @@ const NGXS_IMPORTS = [
     ...ANGULAR_MODULES,
     ...MATERIAL_MODULES,
     ...OTHER_MODULES,
-    ...NGXS_IMPORTS
+    ...NGXS_IMPORTS,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

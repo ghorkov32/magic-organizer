@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Store} from "@ngxs/store";
+import {SubmitScheduleForClass} from "../../states/schedule-form/schedule-form.actions";
 
 @Component({
   selector: 'app-day-time-picker',
@@ -8,23 +10,26 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class DayTimePickerComponent implements OnInit {
 
-  startTimeControl: FormControl;
-  endTimeControl: FormControl;
-  dayOfTheWeekControl: FormControl;
-  public form: FormGroup;
+  public dayTimePickerForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, private store: Store) {
   }
 
   ngOnInit() {
-    this.startTimeControl = new FormControl();
-    this.endTimeControl = new FormControl();
-    this.dayOfTheWeekControl = new FormControl();
-    this.form = new FormGroup({
-      startTime: new FormControl(''),
-      endTime:  new FormControl(''),
-      dayOfTheWeek:  new FormControl('')
+    this.dayTimePickerForm = new FormGroup({
+      startTime: new FormControl('', [Validators.required]),
+      endTime: new FormControl('', [Validators.required]),
+      dayOfTheWeek: new FormControl('', [Validators.required])
     });
   }
 
+  submit() {
+    this.store.dispatch(new SubmitScheduleForClass());
+    this.clear();
+  }
+
+  clear() {
+    this.dayTimePickerForm.setValue({});
+    this.dayTimePickerForm.markAsPristine();
+  }
 }

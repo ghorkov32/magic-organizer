@@ -1,1 +1,30 @@
-<app-day-time-picker></app-day-time-picker>
+<!--suppress TypeScriptUnresolvedFunction -->
+<mat-card class="card-demo" [formGroup]="scheduleAdderForm"
+          ngxsForm="scheduleForm.timepickerForm">
+  <mat-card-title>Add a new class</mat-card-title>
+  <div>
+    <mat-form-field>
+      <input
+        i18n
+        matInput
+        placeholder="Class name"
+        formControlName="className"
+      />
+    </mat-form-field>
+  </div>
+  <mat-card-subtitle>Set the available schedules for your class
+  </mat-card-subtitle>
+  <mat-card-content>
+    <h3 i18n>Current Schedule For this class</h3>
+    <div *ngFor="let schedule of (currentSchedule | async).schedules; let i = index">
+      <app-schedule [schedule]="schedule">
+      </app-schedule>
+    </div>
+    <h4 i18n>Select day of the week and time</h4>
+    <app-day-time-picker>
+    </app-day-time-picker>
+
+  </mat-card-content>
+  <mat-card-footer style="width:95%">
+  </mat-card-footer>
+</mat-card>
