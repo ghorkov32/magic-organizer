@@ -17,6 +17,45 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MccTimerPickerModule } from 'material-community-components';
 import { MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ScheduleFormState } from './states/schedule-form/schedule-form.state';
+import { SchedulesGroupState } from './states/schedules/schedules.state';
+import { SchedulePermutationsState } from './states/schedule-permutations/schedule-permutations.state';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+
+const ANGULAR_MODULES = [
+  BrowserModule,
+  BrowserAnimationsModule,
+  FormsModule,
+  ReactiveFormsModule,
+];
+
+const MATERIAL_MODULES = [
+  MatSelectModule,
+  MatInputModule,
+];
+
+const OTHER_MODULES = [
+  CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory
+  }),
+  MccTimerPickerModule,
+  FlexLayoutModule,
+];
+
+const STATES = [
+  ScheduleFormState,
+  SchedulesGroupState,
+  SchedulePermutationsState
+];
+
+const NGXS_IMPORTS = [
+  NgxsModule.forRoot(STATES),
+  NgxsFormPluginModule.forRoot(),
+  NgxsReduxDevtoolsPluginModule.forRoot()
+];
 
 @NgModule({
   declarations: [
@@ -30,18 +69,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DayTimePickerComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    }),
-    MatSelectModule,
-    MccTimerPickerModule,
-    FlexLayoutModule,
-    MatInputModule,
+    ...ANGULAR_MODULES,
+    ...MATERIAL_MODULES,
+    ...OTHER_MODULES,
+    ...NGXS_IMPORTS
   ],
   providers: [],
   bootstrap: [AppComponent]

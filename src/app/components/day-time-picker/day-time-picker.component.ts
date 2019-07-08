@@ -11,7 +11,7 @@ export class DayTimePickerComponent implements OnInit {
   startTimeControl: FormControl;
   endTimeControl: FormControl;
   dayOfTheWeekControl: FormControl;
-  dayTimePickerFormGroup: FormGroup;
+  public form: FormGroup;
 
   constructor(public formBuilder: FormBuilder) {
   }
@@ -20,10 +20,10 @@ export class DayTimePickerComponent implements OnInit {
     this.startTimeControl = new FormControl();
     this.endTimeControl = new FormControl();
     this.dayOfTheWeekControl = new FormControl();
-    this.dayTimePickerFormGroup = this.formBuilder.group({
-      starTime: this.startTimeControl,
-      endtime: this.endTimeControl,
-      dayOfTheWeek: this.dayOfTheWeekControl
+    this.form = new FormGroup({
+      startTime: new FormControl(''),
+      endTime:  new FormControl(''),
+      dayOfTheWeek:  new FormControl('')
     });
   }
 

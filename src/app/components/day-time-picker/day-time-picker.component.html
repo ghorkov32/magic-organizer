@@ -1,6 +1,6 @@
 <h4 i18n>Select day of the week and time</h4>
-<div flex fxLayout="row">
-  <form [formgroup]="dayTimePickerFormGroup" class="example-form">
+<div>
+  <form [formGroup]="form" class="example-form" flex fxLayout="row">
     <div>
       <mat-form-field style="width:80%">
         <mat-label>Day of the week</mat-label>
@@ -49,3 +49,5 @@
     </div>
   </form>
 </div>
+
+<pre>{{form.value | json}}</pre>
