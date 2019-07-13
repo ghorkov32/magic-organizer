@@ -20,7 +20,10 @@ export class SchedulesGroupState {
   public static getState(state: SchedulesGroupStateModel) {
     return state;
   }
-
+  @Selector()
+  public static getScheduleGroups(state: SchedulesGroupStateModel) {
+    return state.scheduleGroups;
+  }
   @Selector()
   public static getCurrentSchedule(state: SchedulesGroupStateModel) {
     return state.currentSchedule;

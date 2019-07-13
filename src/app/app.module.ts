@@ -10,7 +10,7 @@ import { ScheduleComponent }                from './components/schedule/schedule
 import { ScheduleAdderComponent }           from './components/schedule-adder/schedule-adder.component';
 import { CalendarsListComponent }           from './components/calendars-list/calendars-list.component';
 import { CalendarComponent }                from './components/calendar/calendar.component';
-import { ScheduleGroupComponent }           from './components/schedule-group/schedule-group.component';
+import { AddedClassesComponent }            from './components/schedule-group/added-classes.component';
 import { DayTimePickerComponent }           from './components/day-time-picker/day-time-picker.component';
 import { MatSelectModule }                  from '@angular/material/select';
 import { FlexLayoutModule }                 from '@angular/flex-layout';
@@ -68,7 +68,7 @@ const NGXS_IMPORTS = [
     ScheduleAdderComponent,
     CalendarsListComponent,
     CalendarComponent,
-    ScheduleGroupComponent,
+    AddedClassesComponent,
     DayTimePickerComponent
   ],
   imports: [
