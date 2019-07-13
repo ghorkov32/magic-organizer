@@ -18,5 +18,5 @@ export class RemoveScheduleGroup {
 
 export class RemoveScheduleFromCurrent {
   public static readonly type = '[SchedulesGroups] Remove schedule';
-  constructor(public group: ScheduleGroupModel, public scheduleIndex: ScheduleModel) { }
+  constructor(public payload: number) { }
 }

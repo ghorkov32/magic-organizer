@@ -1,6 +1,6 @@
 import {State, Selector, Action, StateContext} from '@ngxs/store';
 import {ScheduleGroupModel} from 'src/app/models/schedule-group';
-import {AddScheduleToCurrent} from "./schedules.actions";
+import {AddScheduleToCurrent, RemoveScheduleFromCurrent} from './schedules.actions';
 
 export interface SchedulesGroupStateModel {
   scheduleGroups: ScheduleGroupModel[];
@@ -30,6 +30,15 @@ export class SchedulesGroupState {
   addScheduleToCurrent(ctx: StateContext<SchedulesGroupStateModel>, {payload}: AddScheduleToCurrent) {
     const currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
     currentScheduleToAdd.addSchedule(payload);
+    ctx.patchState({
+      currentSchedule: currentScheduleToAdd
+    });
+
+  }
+  @Action(RemoveScheduleFromCurrent)
+  removeScheduleFromCurrent(ctx: StateContext<SchedulesGroupStateModel>, payload: number) {
+    const currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
+    currentScheduleToAdd.removeSchedule(payload);
     ctx.patchState({
       currentSchedule: currentScheduleToAdd
     });

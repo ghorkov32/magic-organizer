@@ -18,12 +18,12 @@ import { MccTimerPickerModule } from 'material-community-components';
 import {MatCardModule, MatInputModule} from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ScheduleFormState } from './states/schedule-form/schedule-form.state';
 import { SchedulesGroupState } from './states/schedules/schedules.state';
 import { SchedulePermutationsState } from './states/schedule-permutations/schedule-permutations.state';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+import {MatIconModule} from '@angular/material/icon';
 
 const ANGULAR_MODULES = [
   BrowserModule,
@@ -36,6 +36,8 @@ const MATERIAL_MODULES = [
   MatSelectModule,
   MatInputModule,
   MatButtonModule,
+  MatIconModule,
+  MatCardModule,
 ];
 
 const OTHER_MODULES = [
@@ -48,7 +50,6 @@ const OTHER_MODULES = [
 ];
 
 const STATES = [
-  ScheduleFormState,
   SchedulesGroupState,
   SchedulePermutationsState
 ];
@@ -75,7 +76,6 @@ const NGXS_IMPORTS = [
     ...MATERIAL_MODULES,
     ...OTHER_MODULES,
     ...NGXS_IMPORTS,
-    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

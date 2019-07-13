@@ -3,6 +3,7 @@ import {Select} from '@ngxs/store';
 import {SchedulesGroupState} from '../../states/schedules/schedules.state';
 import {ScheduleGroupModel} from '../../models/schedule-group';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-schedule-adder',
@@ -12,7 +13,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class ScheduleAdderComponent implements OnInit {
 
   @Select(SchedulesGroupState.getCurrentSchedule)
-  currentSchedule: ScheduleGroupModel;
+  currentSchedule: Observable<ScheduleGroupModel>;
 
   scheduleAdderForm: FormGroup;
 

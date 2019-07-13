@@ -1,7 +1,6 @@
 <div>
   <form
     [formGroup]="dayTimePickerForm"
-    ngxsForm="scheduleForm.timepickerForm"
     fxLayout="row"
     fxLayout.xs="column"
     fxLayout.sm="column"
@@ -10,7 +9,7 @@
     <div>
       <mat-form-field>
         <mat-label>Day of the week</mat-label>
-        <mat-select formControlName="dayOfTheWeek">
+        <mat-select formControlName="dayOfTheWeek" [errorStateMatcher]="errorStateMatcher">
           <mat-option i18n value="1">Monday</mat-option>
           <mat-option i18n value="2">Tuesday</mat-option>
           <mat-option i18n value="3">Wednesday</mat-option>
@@ -35,6 +34,7 @@
           #startTime="mccTimerPickerOrigin"
           placeholder="Start time"
           formControlName="startTime"
+          [errorStateMatcher]="errorStateMatcher"
         />
       </mat-form-field>
     </div>
@@ -52,12 +52,25 @@
           #endTime="mccTimerPickerOrigin"
           placeholder="End time"
           formControlName="endTime"
+          [errorStateMatcher]="errorStateMatcher"
         />
       </mat-form-field>
     </div>
-    <div *ngIf="">
-      <button mat-raised-button color="primary" (click)="submit()" i18n>Add</button>
-      <button mat-raised-button color="accent" (click)="clear()" i18n>Clear</button>
+    <div
+      class="buttons-container"
+      fxLayout="row"
+      fxFlex>
+      <div class="row">
+      <button mat-raised-button color="primary" [disabled]="dayTimePickerForm.invalid" (click)="submit()" i18n>
+        Add
+      </button>
+      <button mat-raised-button color="accent" [disabled]="dayTimePickerForm.invalid" (click)="clear()" i18n>
+        Clear
+      </button>
+      </div>
+      <div class="row" *ngIf="!!dayTimePickerForm.getError('range')">
+        Start time of class must be before than end time
+      </div>
     </div>
   </form>
 </div>

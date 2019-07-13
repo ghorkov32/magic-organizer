@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScheduleModel } from 'src/app/models/schedule-model';
+import {Store} from '@ngxs/store';
+import {RemoveScheduleFromCurrent} from '../../states/schedules/schedules.actions';
 
 @Component({
   selector: 'app-schedule',
@@ -9,10 +11,14 @@ import { ScheduleModel } from 'src/app/models/schedule-model';
 export class ScheduleComponent implements OnInit {
 
   @Input() schedule: ScheduleModel;
+  @Input() index: number;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit() {
   }
 
+  remove() {
+    this.store.dispatch(new RemoveScheduleFromCurrent(this.index));
+  }
 }

@@ -7,12 +7,19 @@ export class ScheduleModel {
   priority: number;
 
   constructor(UUID: string, dateFrom: Date, dateTo: Date,
-              name: string, priority: number, dayOfTheWeek: number) {
+              dayOfTheWeek: number) {
     this.UUID = UUID;
     this.dateFrom = dateFrom;
     this.dateTo = dateTo;
     this.dayOfTheWeek = dayOfTheWeek;
+  }
+
+  public setName(name: string) {
     this.name = name;
+  }
+
+  public setPriority(priority: number) {
     this.priority = priority;
   }
+
 }

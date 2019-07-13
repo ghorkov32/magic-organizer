@@ -1,27 +1,11 @@
 <div
+  class="schedule-container"
   fxLayout="row"
-  fxLayout.xs="column"
-  fxLayout.sm="column"
-  fxFlex
->
-  <div>
-    <mat-form-field>
-      <mat-label>Day of the week</mat-label>
-      <mat-select [value]="schedule.dayOfTheWeek" >
-        <mat-option i18n value="1">Monday</mat-option>
-        <mat-option i18n value="2">Tuesday</mat-option>
-        <mat-option i18n value="3">Wednesday</mat-option>
-        <mat-option i18n value="4">Thursday</mat-option>
-        <mat-option i18n value="5">Friday</mat-option>
-        <mat-option i18n value="6">Saturday</mat-option>
-        <mat-option i18n value="7">Sunday</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div>
-    <td>{{schedule.dateFrom | date:'EEEE HH:MM'}}</td>
-  </div>
-  <div>
-    <td>{{schedule.dateTo | date:'EEEE HH:MM'}}</td>
-  </div>
+  fxLayout.xs="row"
+  fxLayout.sm="row"
+  fxFlex>
+  <td>{{schedule.dateFrom | date:'EEEE HH:mm'}} to {{schedule.dateTo | date:'HH:mm'}}</td>
+  <button mat-button (click)="remove()" i18n>
+    <mat-icon>delete_forever</mat-icon>
+  </button>
 </div>
