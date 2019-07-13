@@ -1,12 +1,12 @@
-<mat-card class="card-demo" [formGroup]="scheduleAdderForm">
+<mat-card [formGroup]="scheduleAdderForm" class="card-demo">
   <mat-card-title>Add a new class</mat-card-title>
   <div>
     <mat-form-field>
       <input
+        formControlName="className"
         i18n
         matInput
         placeholder="Class name"
-        formControlName="className"
       />
     </mat-form-field>
   </div>

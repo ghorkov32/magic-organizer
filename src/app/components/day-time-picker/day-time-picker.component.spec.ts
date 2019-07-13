@@ -8,9 +8,9 @@ describe('DayTimePickerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DayTimePickerComponent ]
+      declarations: [DayTimePickerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

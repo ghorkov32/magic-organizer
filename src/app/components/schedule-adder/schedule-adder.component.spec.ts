@@ -8,9 +8,9 @@ describe('ScheduleAdderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScheduleAdderComponent ]
+      declarations: [ScheduleAdderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

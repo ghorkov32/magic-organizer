@@ -8,9 +8,9 @@ describe('ScheduleGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScheduleGroupComponent ]
+      declarations: [ScheduleGroupComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

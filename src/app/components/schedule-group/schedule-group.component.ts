@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ScheduleGroupModel } from 'src/app/models/schedule-group';
+import { Component, Input, OnInit } from '@angular/core';
+import { ScheduleGroupModel }       from 'src/app/models/schedule-group';
 
 @Component({
   selector: 'app-schedule-group',
@@ -10,7 +10,8 @@ export class ScheduleGroupComponent implements OnInit {
 
   @Input() scheduleGroup: ScheduleGroupModel;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

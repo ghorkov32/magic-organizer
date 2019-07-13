@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
-import {Store} from '@ngxs/store';
-import {ScheduleModel} from '../../models/schedule-model';
-import {AddScheduleToCurrent} from '../../states/schedules/schedules.actions';
-import {SchedulerService} from '../../services/scheduler.service';
-import * as uuid from 'uuid';
-import {CommonErrorStateMatcher} from '../../error-state-matchers/common-error-state-matcher.class';
+import { Component, OnInit }                               from '@angular/core';
+import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Store }                                           from '@ngxs/store';
+import { ScheduleModel }                                   from '../../models/schedule-model';
+import { AddScheduleToCurrent }                            from '../../states/schedules/schedules.actions';
+import * as uuid                                           from 'uuid';
+import { CommonErrorStateMatcher }                         from '../../error-state-matchers/common-error-state-matcher.class';
+import { TimeFunctions }                                   from '../../common/time-functions';
 
 const TimeRangeValidator: ValidatorFn = (fg: FormGroup) => {
   const start = fg.get('startTime').value;
@@ -15,37 +15,6 @@ const TimeRangeValidator: ValidatorFn = (fg: FormGroup) => {
     : {range: true};
 };
 
-export class TimeFunctions {
-  static getHours(time: string): number {
-    return parseInt(time.substr(0, time.indexOf(':')), 10);
-  }
-
-  static getMinutes(time: string): number {
-    return parseInt(time.substr(time.length - 2), 10);
-  }
-
-  static isTimeRangeValid(start: string, end: string): boolean {
-    return start !==
-           null &&
-           end !==
-           null &&
-           (
-             TimeFunctions.getHours(start) <
-             TimeFunctions.getHours(end) ||
-             (
-               (
-                 TimeFunctions.getHours(start) ===
-                 TimeFunctions.getHours(end)
-               ) &&
-               (
-                 TimeFunctions.getMinutes(start) <
-                 TimeFunctions.getMinutes(end)
-               )
-             )
-           );
-  }
-
-}
 
 @Component({
   selector: 'app-day-time-picker',
@@ -55,10 +24,8 @@ export class TimeFunctions {
 export class DayTimePickerComponent implements OnInit {
   public dayTimePickerForm: FormGroup;
   public errorStateMatcher: CommonErrorStateMatcher;
-  private startTimeControl: AbstractControl;
-  private endTimeControl: AbstractControl;
 
-  constructor(public formBuilder: FormBuilder, private store: Store, private schedulerService: SchedulerService) {
+  constructor(private store: Store) {
     this.errorStateMatcher = new CommonErrorStateMatcher();
   }
 
@@ -85,7 +52,7 @@ export class DayTimePickerComponent implements OnInit {
     const endTimeValue = this.dayTimePickerForm.get('endTime').value;
     const dayOfTheWeekValue = this.dayTimePickerForm.get('dayOfTheWeek').value;
     const uuidForSchedule: string = uuid.v4();
-    const selectedDoTW: Date = this.schedulerService.nextWeekdayDate(new Date(), dayOfTheWeekValue);
+    const selectedDoTW: Date = TimeFunctions.nextWeekdayDate(new Date(), dayOfTheWeekValue);
     const dateStart = new Date(selectedDoTW.getTime());
     const dateEnd = new Date(selectedDoTW.getTime());
 

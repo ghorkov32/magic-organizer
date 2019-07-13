@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ScheduleModel } from 'src/app/models/schedule-model';
+import { Component, OnInit }  from '@angular/core';
+import { Observable }         from 'rxjs';
 import { ScheduleGroupModel } from 'src/app/models/schedule-group';
 
 @Component({
@@ -12,7 +11,8 @@ export class SchedulesDashboardComponent implements OnInit {
 
   public schedules$: Observable<ScheduleGroupModel[]>;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

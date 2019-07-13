@@ -1,11 +1,11 @@
 <div
   class="schedule-container"
+  fxFlex
   fxLayout="row"
-  fxLayout.xs="row"
   fxLayout.sm="row"
-  fxFlex>
-  <td>{{schedule.dateFrom | date:'EEEE HH:mm'}} to {{schedule.dateTo | date:'HH:mm'}}</td>
-  <button mat-button (click)="remove()" i18n>
+  fxLayout.xs="row">
+  {{schedule.dateFrom | date:'EEEE HH:mm'}} to {{schedule.dateTo | date:'HH:mm'}}
+  <button (click)="remove()" i18n mat-button>
     <mat-icon>delete_forever</mat-icon>
   </button>
 </div>

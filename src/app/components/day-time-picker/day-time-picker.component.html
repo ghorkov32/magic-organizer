@@ -1,15 +1,15 @@
 <div>
   <form
     [formGroup]="dayTimePickerForm"
-    fxLayout="row"
-    fxLayout.xs="column"
-    fxLayout.sm="column"
     fxFlex
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
   >
     <div>
       <mat-form-field>
         <mat-label>Day of the week</mat-label>
-        <mat-select formControlName="dayOfTheWeek" [errorStateMatcher]="errorStateMatcher">
+        <mat-select [errorStateMatcher]="errorStateMatcher" formControlName="dayOfTheWeek">
           <mat-option i18n value="1">Monday</mat-option>
           <mat-option i18n value="2">Tuesday</mat-option>
           <mat-option i18n value="3">Wednesday</mat-option>
@@ -23,52 +23,52 @@
     <div>
       <mat-form-field>
         <mcc-timer-picker
-          mccConnectedTimerPicker
           [mccConnectedTimerPickerOrigin]="startTime"
           [mccTimerPickerFormat]="'24'"
+          mccConnectedTimerPicker
         ></mcc-timer-picker>
         <input
+          #startTime="mccTimerPickerOrigin"
+          [errorStateMatcher]="errorStateMatcher"
+          formControlName="startTime"
           i18n
           matInput
           mccTimerPickerOrigin
-          #startTime="mccTimerPickerOrigin"
           placeholder="Start time"
-          formControlName="startTime"
-          [errorStateMatcher]="errorStateMatcher"
         />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
         <mcc-timer-picker
-          mccConnectedTimerPicker
           [mccConnectedTimerPickerOrigin]="endTime"
           [mccTimerPickerFormat]="'24'"
+          mccConnectedTimerPicker
         ></mcc-timer-picker>
         <input
+          #endTime="mccTimerPickerOrigin"
+          [errorStateMatcher]="errorStateMatcher"
+          formControlName="endTime"
           i18n
           matInput
           mccTimerPickerOrigin
-          #endTime="mccTimerPickerOrigin"
           placeholder="End time"
-          formControlName="endTime"
-          [errorStateMatcher]="errorStateMatcher"
         />
       </mat-form-field>
     </div>
     <div
       class="buttons-container"
-      fxLayout="row"
-      fxFlex>
+      fxFlex
+      fxLayout="row">
       <div class="row">
-      <button mat-raised-button color="primary" [disabled]="dayTimePickerForm.invalid" (click)="submit()" i18n>
-        Add
-      </button>
-      <button mat-raised-button color="accent" [disabled]="dayTimePickerForm.invalid" (click)="clear()" i18n>
-        Clear
-      </button>
+        <button (click)="submit()" [disabled]="dayTimePickerForm.invalid" color="primary" i18n mat-raised-button>
+          Add
+        </button>
+        <button (click)="clear()" [disabled]="dayTimePickerForm.invalid" color="accent" i18n mat-raised-button>
+          Clear
+        </button>
       </div>
-      <div class="row" *ngIf="!!dayTimePickerForm.getError('range')">
+      <div *ngIf="!!dayTimePickerForm.getError('range')" class="row" i18n>
         Start time of class must be before than end time
       </div>
     </div>
