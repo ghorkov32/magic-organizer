@@ -22,7 +22,6 @@ import { SchedulesGroupState }              from './states/schedules/schedules.s
 import { SchedulePermutationsState }        from './states/schedule-permutations/schedule-permutations.state';
 import { NgxsModule }                       from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule }    from '@ngxs/devtools-plugin';
-import { NgxsFormPluginModule }             from '@ngxs/form-plugin';
 import { MatIconModule }                    from '@angular/material/icon';
 
 const ANGULAR_MODULES = [
@@ -56,7 +55,6 @@ const STATES = [
 
 const NGXS_IMPORTS = [
   NgxsModule.forRoot(STATES),
-  NgxsFormPluginModule.forRoot(),
   NgxsReduxDevtoolsPluginModule.forRoot()
 ];
 

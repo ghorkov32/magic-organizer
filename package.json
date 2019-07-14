@@ -22,7 +22,6 @@
     "@angular/platform-browser": "~8.1.0",
     "@angular/platform-browser-dynamic": "~8.1.0",
     "@angular/router": "~8.1.0",
-    "@ngxs/form-plugin": "^3.4.3",
     "@ngxs/schematics": "0.0.1-alpha.5",
     "@ngxs/store": "^3.4.3",
     "@types/underscore": "^1.9.2",
