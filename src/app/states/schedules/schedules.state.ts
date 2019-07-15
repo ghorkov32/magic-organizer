@@ -1,6 +1,11 @@
-import { Action, Selector, State, StateContext }                                 from '@ngxs/store';
-import { ScheduleGroupModel }                                                    from 'src/app/models/schedule-group';
-import { AddScheduleToCurrent, ClearCurrentSchedule, RemoveScheduleFromCurrent } from './schedules.actions';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { ScheduleGroupModel }                    from 'src/app/models/schedule-group';
+import {
+  AddCurrentScheduleToGroup,
+  AddScheduleToCurrent,
+  ClearCurrentSchedule,
+  RemoveScheduleFromCurrent
+}                                                from './schedules.actions';
 
 export interface SchedulesGroupStateModel {
   scheduleGroups: ScheduleGroupModel[];
@@ -29,32 +34,69 @@ export class SchedulesGroupState {
     return state.currentSchedule;
   }
 
+  /**
+   * Adds a schedule to current class
+   *
+   * @param ctx       state context
+   * @param payload   schedule to add
+   */
   @Action(AddScheduleToCurrent)
-  addScheduleToCurrent(ctx: StateContext<SchedulesGroupStateModel>, {payload}: AddScheduleToCurrent) {
+  addScheduleToCurrent(ctx: StateContext<SchedulesGroupStateModel>, {schedule}: AddScheduleToCurrent) {
     const currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
-    currentScheduleToAdd.addSchedule(payload);
+    currentScheduleToAdd.addSchedule(schedule);
     ctx.patchState({
       currentSchedule: currentScheduleToAdd
     });
 
   }
 
+  /**
+   * Removes a schedule from current class
+   *
+   * @param ctx   state context
+   * @param index index of schedule to remove
+   */
   @Action(RemoveScheduleFromCurrent)
-  removeScheduleFromCurrent(ctx: StateContext<SchedulesGroupStateModel>, payload: number) {
+  removeScheduleFromCurrent(ctx: StateContext<SchedulesGroupStateModel>, index: number) {
     const currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
-    currentScheduleToAdd.removeSchedule(payload);
+    currentScheduleToAdd.removeSchedule(index);
     ctx.patchState({
       currentSchedule: currentScheduleToAdd
     });
 
   }
 
+  /**
+   * Clears the current schedule
+   * @param ctx state context
+   */
   @Action(ClearCurrentSchedule)
   clearCurrentSchedule(ctx: StateContext<SchedulesGroupStateModel>) {
     let currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
     currentScheduleToAdd.schedules.splice(0, currentScheduleToAdd.schedules.length);
     ctx.patchState({
       currentSchedule: currentScheduleToAdd
+    });
+
+  }
+
+  /**
+   * Sets the name of the class for each schedule, clears current schedule and patchs the state
+   * adding the new class
+   * @param ctx         state context
+   * @param className   name of the class
+   */
+  @Action(AddCurrentScheduleToGroup)
+  addCurrentScheduleToGroup(ctx: StateContext<SchedulesGroupStateModel>, className: string) {
+    let currentSchedule: ScheduleGroupModel = ctx.getState().currentSchedule;
+    currentSchedule.schedules.forEach(schedule => {
+      schedule.setName(className);
+    });
+    let scheduleGroups: ScheduleGroupModel[] = ctx.getState().scheduleGroups;
+    scheduleGroups.push(currentSchedule);
+    this.clearCurrentSchedule(ctx);
+    ctx.patchState({
+      scheduleGroups: scheduleGroups
     });
 
   }
