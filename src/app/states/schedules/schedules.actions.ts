@@ -28,3 +28,10 @@ export class RemoveScheduleFromCurrent {
   constructor(public payload: number) {
   }
 }
+
+export class ClearCurrentSchedule {
+  public static readonly type = '[SchedulesGroups] Clear current schedule';
+
+  constructor() {
+  }
+}

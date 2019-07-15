@@ -23,6 +23,25 @@
     </app-day-time-picker>
 
   </mat-card-content>
-  <mat-card-footer style="width:95%">
+  <mat-card-footer>
+    <div
+      class="card-footer-content"
+      fxFlex
+      fxLayout="row"
+      fxLayout.sm="column"
+      fxLayout.xs="column">
+      <div class="row">
+        <button (click)="submit()"
+                [disabled]="scheduleAdderForm.invalid || (currentSchedule$ | async).schedules.length === 0"
+                color="primary" i18n mat-raised-button>
+          Add Class
+        </button>
+        <button (click)="clear()"
+                [disabled]="scheduleAdderForm.invalid ||(currentSchedule$ | async).schedules.length === 0"
+                color="accent" i18n mat-raised-button>
+          Clear class
+        </button>
+      </div>
+    </div>
   </mat-card-footer>
 </mat-card>

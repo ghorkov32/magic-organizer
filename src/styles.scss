@@ -26,3 +26,11 @@ $demo-theme: mat-light-theme($demo-primary, $demo-accent, $demo-warn);
 mat-card {
   margin: 10px;
 }
+
+.card-footer-content {
+  padding: 15px;
+}
+
+button.mat-raised-button {
+  margin: 5px;
+}
