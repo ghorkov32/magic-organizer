@@ -1,7 +1,7 @@
 import { Component, OnInit }   from '@angular/core';
 import { ScheduleGroupModel }  from 'src/app/models/schedule-group';
 import { Select }              from '@ngxs/store';
-import { SchedulesGroupState } from '../../states/schedules/schedules.state';
+import { SchedulesGroupState } from '../../../states/schedules/schedules.state';
 import { Observable }          from 'rxjs';
 
 @Component({

@@ -1,11 +1,11 @@
 import { Component, OnInit }                               from '@angular/core';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Store }                                           from '@ngxs/store';
-import { ScheduleModel }                                   from '../../models/schedule-model';
-import { AddScheduleToCurrent }                            from '../../states/schedules/schedules.actions';
+import { ScheduleModel }                                   from '../../../../models/schedule-model';
+import { AddScheduleToCurrent }                            from '../../../../states/schedules/schedules.actions';
 import * as uuid                                           from 'uuid';
-import { CommonErrorStateMatcher }                         from '../../error-state-matchers/common-error-state-matcher.class';
-import { TimeFunctions }                                   from '../../common/time-functions';
+import { CommonErrorStateMatcher }                         from '../../../../error-state-matchers/common-error-state-matcher.class';
+import { TimeFunctions }                                   from '../../../../common/time-functions';
 
 const TimeRangeValidator: ValidatorFn = (fg: FormGroup) => {
   const start = fg.get('startTime').value;

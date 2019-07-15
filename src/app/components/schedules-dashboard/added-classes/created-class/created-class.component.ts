@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ScheduleGroupModel }       from '../../models/schedule-group';
+import { ScheduleGroupModel }       from '../../../../models/schedule-group';
 
 @Component({
   selector: 'app-created-class',

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit }  from '@angular/core';
 import { ScheduleModel }             from 'src/app/models/schedule-model';
 import { Store }                     from '@ngxs/store';
-import { RemoveScheduleFromCurrent } from '../../states/schedules/schedules.actions';
+import { RemoveScheduleFromCurrent } from '../../../states/schedules/schedules.actions';
 
 @Component({
   selector: 'app-schedule',
