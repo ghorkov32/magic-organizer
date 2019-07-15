@@ -4,10 +4,17 @@
     <mat-card-subtitle>Here are your added classes to prepare the schedule</mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content>
-
+    <div *ngFor="let addedClass of (addedClasses$ | async); let i = index"
+         fxFlex
+         fxLayout="row"
+         fxLayout.sm="column"
+         fxLayout.xs="column">
+      <app-created-class [createdClass]="addedClass"></app-created-class>
+    </div>
   </mat-card-content>
-
   <mat-card-footer>
-    You have a total of {{}}
+    <div *ngIf="(addedClasses$ | async)" class="card-footer-content" i18n>
+      You have a total of {{(addedClasses$ | async).length}} classes to schedule
+    </div>
   </mat-card-footer>
 </mat-card>

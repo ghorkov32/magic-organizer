@@ -23,6 +23,7 @@ import { SchedulePermutationsState }        from './states/schedule-permutations
 import { NgxsModule }                       from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule }    from '@ngxs/devtools-plugin';
 import { MatIconModule }                    from '@angular/material/icon';
+import { CreatedClassComponent }            from './components/created-class/created-class.component';
 
 const ANGULAR_MODULES = [
   BrowserModule,
@@ -67,7 +68,8 @@ const NGXS_IMPORTS = [
     CalendarsListComponent,
     CalendarComponent,
     AddedClassesComponent,
-    DayTimePickerComponent
+    DayTimePickerComponent,
+    CreatedClassComponent
   ],
   imports: [
     ...ANGULAR_MODULES,

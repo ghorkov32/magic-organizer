@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ScheduleGroupModel }       from 'src/app/models/schedule-group';
+import { Component, OnInit }   from '@angular/core';
+import { ScheduleGroupModel }  from 'src/app/models/schedule-group';
+import { Select }              from '@ngxs/store';
+import { SchedulesGroupState } from '../../states/schedules/schedules.state';
+import { Observable }          from 'rxjs';
 
 @Component({
   selector: 'app-added-classes',
@@ -8,7 +11,8 @@ import { ScheduleGroupModel }       from 'src/app/models/schedule-group';
 })
 export class AddedClassesComponent implements OnInit {
 
-  @Input() scheduleGroup: ScheduleGroupModel;
+  @Select(SchedulesGroupState.getScheduleGroups)
+  public addedClasses$: Observable<ScheduleGroupModel[]>;
 
   constructor() {
   }

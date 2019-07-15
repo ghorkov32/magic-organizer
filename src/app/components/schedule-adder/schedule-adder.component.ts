@@ -13,7 +13,7 @@ import { Observable }                         from 'rxjs';
 export class ScheduleAdderComponent implements OnInit {
 
   @Select(SchedulesGroupState.getCurrentSchedule)
-  currentSchedule: Observable<ScheduleGroupModel>;
+  currentSchedule$: Observable<ScheduleGroupModel>;
 
   scheduleAdderForm: FormGroup;
 
