@@ -7,9 +7,7 @@
     <div *ngFor="let addedClass of (addedClasses$ | async); let i = index"
          fxFlex
          fxLayout="row"
-         fxLayout.sm="column"
-         fxLayout.md="row"
-         fxLayout.xs="column">
+         fxLayout.lt-md="column">
       <app-created-class [createdClass]="addedClass"></app-created-class>
     </div>
   </mat-card-content>

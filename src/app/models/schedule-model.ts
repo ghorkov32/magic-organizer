@@ -5,6 +5,7 @@ export class ScheduleModel {
   dateTo: Date;
   name: string;
   priority: number;
+  color: string;
 
   constructor(UUID: string, dateFrom: Date, dateTo: Date,
               dayOfTheWeek: number) {

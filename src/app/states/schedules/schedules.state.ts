@@ -6,6 +6,7 @@ import {
   ClearCurrentSchedule,
   RemoveScheduleFromCurrent
 }                                                from './schedules.actions';
+import { TimeFunctions }                         from '../../common/time-functions';
 
 export interface SchedulesGroupStateModel {
   scheduleGroups: ScheduleGroupModel[];
@@ -25,10 +26,12 @@ export class SchedulesGroupState {
   public static getState(state: SchedulesGroupStateModel) {
     return state;
   }
+
   @Selector()
   public static getScheduleGroups(state: SchedulesGroupStateModel) {
     return state.scheduleGroups;
   }
+
   @Selector()
   public static getCurrentSchedule(state: SchedulesGroupStateModel) {
     return state.currentSchedule;
@@ -89,8 +92,11 @@ export class SchedulesGroupState {
   @Action(AddCurrentScheduleToGroup)
   addCurrentScheduleToGroup(ctx: StateContext<SchedulesGroupStateModel>, className: string) {
     let currentSchedule: ScheduleGroupModel = ctx.getState().currentSchedule;
+    let colors = TimeFunctions.getColorsArray(ctx.getState().scheduleGroups.length + 1);
+    let index = 0;
     currentSchedule.schedules.forEach(schedule => {
       schedule.setName(className);
+      schedule.color = colors[index++];
     });
     let scheduleGroups: ScheduleGroupModel[] = ctx.getState().scheduleGroups;
     scheduleGroups.push(currentSchedule);
@@ -100,4 +106,6 @@ export class SchedulesGroupState {
     });
 
   }
+
+
 }
