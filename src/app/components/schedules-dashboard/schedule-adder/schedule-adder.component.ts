@@ -1,10 +1,10 @@
-import { Component, OnInit }                  from '@angular/core';
-import { Select, Store }                      from '@ngxs/store';
-import { SchedulesGroupState }                from '../../../states/schedules/schedules.state';
-import { ScheduleGroupModel }                 from '../../../models/schedule-group';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable }                         from 'rxjs';
-import { ClearCurrentSchedule }               from '../../../states/schedules/schedules.actions';
+import { Component, OnInit }                               from '@angular/core';
+import { Select, Store }                                   from '@ngxs/store';
+import { SchedulesGroupState }                             from '../../../states/schedules/schedules.state';
+import { ScheduleGroupModel }                              from '../../../models/schedule-group';
+import { FormControl, FormGroup, Validators }              from '@angular/forms';
+import { Observable }                                      from 'rxjs';
+import { AddCurrentScheduleToGroup, ClearCurrentSchedule } from '../../../states/schedules/schedules.actions';
 
 @Component({
   selector: 'app-schedule-adder',
@@ -29,7 +29,7 @@ export class ScheduleAdderComponent implements OnInit {
   }
 
   submit() {
-
+    this.store.dispatch(new AddCurrentScheduleToGroup(this.scheduleAdderForm.get('className').value.toString()));
   }
 
   clear() {

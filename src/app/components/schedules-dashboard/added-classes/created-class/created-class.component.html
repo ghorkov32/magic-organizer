@@ -1,1 +1,33 @@
-<p>created-class works!</p>
+<mat-card>
+  <mat-card-title-group>
+    <mat-card-title>{{createdClass.schedules[0].name}}</mat-card-title>
+  </mat-card-title-group>
+  <mat-card-content>
+    <div
+      *ngFor="let schedule of createdClass.schedules; let i = index"
+      fxFlex
+      fxLayout="row">
+      <mat-card
+        [ngStyle]="{'background': '#' + schedule.color}">
+        <mat-card-title-group>
+          <mat-card-title class="sub-card-title">{{schedule.dayOfTheWeek | dayOfTheWeek}}</mat-card-title>
+        </mat-card-title-group>
+        <mat-card-content>
+          <div
+            class="schedule-container"
+            fxFlex
+            fxLayout="row"
+            fxLayout.sm="row"
+            fxLayout.xs="row">
+            {{schedule.dateFrom | date:'HH:mm'}} to {{schedule.dateTo | date:'HH:mm'}}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <div *ngIf="createdClass.schedules.length > 1" class="card-footer-content" i18n>
+      You have a total of {{createdClass.schedules.length}} schedules for this class
+    </div>
+  </mat-card-footer>
+</mat-card>

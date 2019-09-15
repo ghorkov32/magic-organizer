@@ -7,14 +7,23 @@ import { ScheduleGroupModel }       from '../../../../models/schedule-group';
   styleUrls: ['./created-class.component.scss']
 })
 export class CreatedClassComponent implements OnInit {
+  private _createdClass: ScheduleGroupModel;
+
+  get createdClass(): ScheduleGroupModel {
+    return this._createdClass;
+  }
 
   @Input()
-  public createdClass: ScheduleGroupModel;
+  set createdClass(value: ScheduleGroupModel) {
+    console.log(JSON.stringify(value));
+    this._createdClass = value;
+  }
 
   constructor() {
   }
 
   ngOnInit() {
+
   }
 
 }

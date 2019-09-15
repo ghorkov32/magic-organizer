@@ -4,11 +4,13 @@
     <mat-card-subtitle>Here are your added classes to prepare the schedule</mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content>
-    <div *ngFor="let addedClass of (addedClasses$ | async); let i = index"
-         fxFlex
-         fxLayout="row"
-         fxLayout.lt-md="column">
-      <app-created-class [createdClass]="addedClass"></app-created-class>
+    <div
+      fxFlex
+      fxLayout="column"
+      fxLayout.gt-xs="row wrap">
+      <div *ngFor="let addedClass of (addedClasses$ | async); let i = index">
+        <app-created-class [createdClass]="addedClass"></app-created-class>
+      </div>
     </div>
   </mat-card-content>
   <mat-card-footer>

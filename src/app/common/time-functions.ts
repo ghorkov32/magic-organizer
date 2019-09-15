@@ -1,6 +1,5 @@
-import * as _ from 'underscore';
-
-declare var palette: any;
+import * as _                     from 'underscore';
+import { FormGroup, ValidatorFn } from '@angular/forms';
 
 export class TimeFunctions {
   static getHours(time: string): number {
@@ -58,11 +57,12 @@ export class TimeFunctions {
     return ret;
   }
 
-  static getColorsArray(size: number): string[] {
-    let name = 'mpn65';
-    let scheme = palette.listSchemes(name)[0];
-    const args = Array.prototype.slice.call(arguments, 1);
-    args[0] = size;
-    return scheme.apply(scheme, args);
-  }
 }
+
+export const TimeRangeValidator: ValidatorFn = (fg: FormGroup) => {
+  const start = fg.get('startTime').value;
+  const end = fg.get('endTime').value;
+  return TimeFunctions.isTimeRangeValid(start, end) || fg.get('startTime').pristine || fg.get('endTime').pristine
+    ? null
+    : {range: true};
+};

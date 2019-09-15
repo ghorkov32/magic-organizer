@@ -1,19 +1,11 @@
-import { Component, OnInit }                               from '@angular/core';
-import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { Store }                                           from '@ngxs/store';
-import { ScheduleModel }                                   from '../../../../models/schedule-model';
-import { AddScheduleToCurrent }                            from '../../../../states/schedules/schedules.actions';
-import * as uuid                                           from 'uuid';
-import { CommonErrorStateMatcher }                         from '../../../../error-state-matchers/common-error-state-matcher.class';
-import { TimeFunctions }                                   from '../../../../common/time-functions';
-
-const TimeRangeValidator: ValidatorFn = (fg: FormGroup) => {
-  const start = fg.get('startTime').value;
-  const end = fg.get('endTime').value;
-  return TimeFunctions.isTimeRangeValid(start, end) || fg.get('startTime').pristine || fg.get('endTime').pristine
-    ? null
-    : {range: true};
-};
+import { Component, OnInit }                  from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store }                              from '@ngxs/store';
+import { ScheduleModel }                      from '../../../../models/schedule-model';
+import { AddScheduleToCurrent }               from '../../../../states/schedules/schedules.actions';
+import * as uuid                              from 'uuid';
+import { CommonErrorStateMatcher }            from '../../../../error-state-matchers/common-error-state-matcher.class';
+import { TimeFunctions, TimeRangeValidator }  from '../../../../common/time-functions';
 
 
 @Component({

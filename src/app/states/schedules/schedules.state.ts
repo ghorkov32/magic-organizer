@@ -6,7 +6,8 @@ import {
   ClearCurrentSchedule,
   RemoveScheduleFromCurrent
 }                                                from './schedules.actions';
-import { TimeFunctions }                         from '../../common/time-functions';
+
+import * as palette from 'google-palette/palette'
 
 export interface SchedulesGroupStateModel {
   scheduleGroups: ScheduleGroupModel[];
@@ -75,10 +76,8 @@ export class SchedulesGroupState {
    */
   @Action(ClearCurrentSchedule)
   clearCurrentSchedule(ctx: StateContext<SchedulesGroupStateModel>) {
-    let currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
-    currentScheduleToAdd.schedules.splice(0, currentScheduleToAdd.schedules.length);
     ctx.patchState({
-      currentSchedule: currentScheduleToAdd
+      currentSchedule: new ScheduleGroupModel([])
     });
 
   }
@@ -90,13 +89,13 @@ export class SchedulesGroupState {
    * @param className   name of the class
    */
   @Action(AddCurrentScheduleToGroup)
-  addCurrentScheduleToGroup(ctx: StateContext<SchedulesGroupStateModel>, className: string) {
-    let currentSchedule: ScheduleGroupModel = ctx.getState().currentSchedule;
-    let colors = TimeFunctions.getColorsArray(ctx.getState().scheduleGroups.length + 1);
-    let index = 0;
+  addCurrentScheduleToGroup(ctx: StateContext<SchedulesGroupStateModel>, className: any) {
+    let currentSchedule: ScheduleGroupModel = Object.assign({}, ctx.getState().currentSchedule);
+    let colors = this.getColorsArray(ctx.getState().scheduleGroups.length + 1);
+    let index = ctx.getState().scheduleGroups.length;
     currentSchedule.schedules.forEach(schedule => {
-      schedule.setName(className);
-      schedule.color = colors[index++];
+      schedule.setName(className.className);
+      schedule.color = colors[index];
     });
     let scheduleGroups: ScheduleGroupModel[] = ctx.getState().scheduleGroups;
     scheduleGroups.push(currentSchedule);
@@ -107,5 +106,12 @@ export class SchedulesGroupState {
 
   }
 
+  private getColorsArray(size: number): string[] {
+    let name = 'mpn65';
+    let scheme = palette.listSchemes(name)[0];
+    const args = Array.prototype.slice.call(arguments, 1);
+    args[0] = size;
+    return scheme.apply(scheme, args);
+  }
 
 }

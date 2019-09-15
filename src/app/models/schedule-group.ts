@@ -1,7 +1,7 @@
 import { ScheduleModel } from './schedule-model';
 
 export class ScheduleGroupModel {
-  schedules: ScheduleModel[];
+  public schedules: ScheduleModel[];
 
   constructor(schedules: ScheduleModel[]) {
     this.schedules = schedules;
