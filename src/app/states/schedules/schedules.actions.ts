@@ -18,7 +18,7 @@ export class AddScheduleToCurrent {
 export class RemoveScheduleGroup {
   public static readonly type = '[SchedulesGroups] Remove group';
 
-  constructor(public groupIndex: number) {
+  constructor(public index: number) {
   }
 }
 

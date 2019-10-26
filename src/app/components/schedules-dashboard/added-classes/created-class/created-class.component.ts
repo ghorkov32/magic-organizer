@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ScheduleGroupModel }       from '../../../../models/schedule-group';
+import { Store }                    from '@ngxs/store';
+import { RemoveScheduleGroup }      from '../../../../states/schedules/schedules.actions';
 
 @Component({
   selector: 'app-created-class',
@@ -8,6 +10,9 @@ import { ScheduleGroupModel }       from '../../../../models/schedule-group';
 })
 export class CreatedClassComponent implements OnInit {
   private _createdClass: ScheduleGroupModel;
+
+  @Input()
+  private index: number;
 
   get createdClass(): ScheduleGroupModel {
     return this._createdClass;
@@ -19,11 +24,14 @@ export class CreatedClassComponent implements OnInit {
     this._createdClass = value;
   }
 
-  constructor() {
+  constructor(private store: Store) {
   }
 
   ngOnInit() {
 
   }
 
+  remove() {
+    this.store.dispatch(new RemoveScheduleGroup(this.index));
+  }
 }

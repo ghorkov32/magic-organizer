@@ -4,7 +4,8 @@ import {
   AddCurrentScheduleToGroup,
   AddScheduleToCurrent,
   ClearCurrentSchedule,
-  RemoveScheduleFromCurrent
+  RemoveScheduleFromCurrent,
+  RemoveScheduleGroup
 }                                                from './schedules.actions';
 
 import * as palette from 'google-palette/palette'
@@ -12,13 +13,15 @@ import * as palette from 'google-palette/palette'
 export interface SchedulesGroupStateModel {
   scheduleGroups: ScheduleGroupModel[];
   currentSchedule: ScheduleGroupModel;
+  scheduleGroupCount: number;
 }
 
 @State<SchedulesGroupStateModel>({
   name: 'schedules',
   defaults: {
     scheduleGroups: [],
-    currentSchedule: new ScheduleGroupModel([])
+    currentSchedule: new ScheduleGroupModel([]),
+    scheduleGroupCount: 0
   }
 })
 export class SchedulesGroupState {
@@ -39,19 +42,15 @@ export class SchedulesGroupState {
   }
 
   /**
-   * Adds a schedule to current class
-   *
-   * @param ctx       state context
-   * @param payload   schedule to add
+   * Generates an array of colors according to a predefined size
+   * @param size    Size of the array
    */
-  @Action(AddScheduleToCurrent)
-  addScheduleToCurrent(ctx: StateContext<SchedulesGroupStateModel>, {schedule}: AddScheduleToCurrent) {
-    const currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
-    currentScheduleToAdd.addSchedule(schedule);
-    ctx.patchState({
-      currentSchedule: currentScheduleToAdd
-    });
-
+  static getColorsArray(size: number): string[] {
+    let name = 'mpn65';
+    let scheme = palette.listSchemes(name)[0];
+    const args = Array.prototype.slice.call(arguments, 1);
+    args[0] = size;
+    return scheme.apply(scheme, args);
   }
 
   /**
@@ -83,6 +82,23 @@ export class SchedulesGroupState {
   }
 
   /**
+   * Adds a schedule to current class
+   *
+   * @param ctx       state context
+   * @param payload   schedule to add
+   */
+  @Action(AddScheduleToCurrent)
+  addScheduleToCurrent(ctx: StateContext<SchedulesGroupStateModel>, {schedule}: AddScheduleToCurrent) {
+    let currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
+    if (currentScheduleToAdd.addSchedule == null) currentScheduleToAdd = new ScheduleGroupModel([]);
+    currentScheduleToAdd.addSchedule(schedule);
+    ctx.patchState({
+      currentSchedule: currentScheduleToAdd
+    });
+
+  }
+
+  /**
    * Sets the name of the class for each schedule, clears current schedule and patchs the state
    * adding the new class
    * @param ctx         state context
@@ -91,27 +107,37 @@ export class SchedulesGroupState {
   @Action(AddCurrentScheduleToGroup)
   addCurrentScheduleToGroup(ctx: StateContext<SchedulesGroupStateModel>, className: any) {
     let currentSchedule: ScheduleGroupModel = Object.assign({}, ctx.getState().currentSchedule);
-    let colors = this.getColorsArray(ctx.getState().scheduleGroups.length + 1);
-    let index = ctx.getState().scheduleGroups.length;
+    let scheduleGroupCount: number = ctx.getState().scheduleGroupCount;
+    scheduleGroupCount++;
+    let colors = SchedulesGroupState.getColorsArray(scheduleGroupCount);
     currentSchedule.schedules.forEach(schedule => {
       schedule.setName(className.className);
-      schedule.color = colors[index];
+      schedule.color = colors[scheduleGroupCount - 1];
     });
     let scheduleGroups: ScheduleGroupModel[] = ctx.getState().scheduleGroups;
     scheduleGroups.push(currentSchedule);
     this.clearCurrentSchedule(ctx);
     ctx.patchState({
-      scheduleGroups: scheduleGroups
+      scheduleGroups: scheduleGroups,
+      scheduleGroupCount: scheduleGroupCount
     });
 
   }
 
-  private getColorsArray(size: number): string[] {
-    let name = 'mpn65';
-    let scheme = palette.listSchemes(name)[0];
-    const args = Array.prototype.slice.call(arguments, 1);
-    args[0] = size;
-    return scheme.apply(scheme, args);
+  /**
+   * Removes a class from added classes
+   * @param ctx
+   * @param index
+   */
+  @Action(RemoveScheduleGroup)
+  removeScheduleGroup(ctx: StateContext<SchedulesGroupStateModel>, index: number) {
+    let currentScheduleGroup: ScheduleGroupModel[] = Object.assign([], ctx.getState().scheduleGroups);
+    (
+      currentScheduleGroup as Array<ScheduleGroupModel>
+    ).splice(index, 1);
+    ctx.patchState({
+      scheduleGroups: currentScheduleGroup
+    });
   }
 
 }

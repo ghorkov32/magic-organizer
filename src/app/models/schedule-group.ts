@@ -14,4 +14,5 @@ export class ScheduleGroupModel {
   removeSchedule(index: number) {
     this.schedules.splice(index, 1);
   }
+
 }

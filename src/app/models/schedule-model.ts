@@ -23,4 +23,16 @@ export class ScheduleModel {
     this.priority = priority;
   }
 
+  static dateRangeOverlaps(that: ScheduleModel, obj: ScheduleModel) {
+    if (that.dayOfTheWeek !== obj.dayOfTheWeek) return false;
+    if (that.dateFrom <= obj.dateFrom && obj.dateFrom <= that.dateTo) return true; // b starts in a
+    if (that.dateFrom <= obj.dateTo && obj.dateTo <= that.dateTo) return true; // b ends in a
+    if (obj.dateFrom < that.dateFrom && that.dateTo < obj.dateTo) return true; // a in b
+    return false;
+  }
+
+  public equals(obj: ScheduleModel): boolean {
+    return this.UUID === obj.UUID || ScheduleModel.dateRangeOverlaps(this, obj) || this.name === obj.name;
+  }
+
 }
