@@ -1,6 +1,6 @@
-export class SchedulePermutationsAction {
-  public static readonly type = '[SchedulePermutations] Add item';
+export class GeneratePermutations {
+  public static readonly type = '[SchedulePermutations] GeneratePermutations';
 
-  constructor(public payload: any) {
+  constructor() {
   }
 }

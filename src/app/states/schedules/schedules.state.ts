@@ -7,6 +7,7 @@ import {
   RemoveScheduleFromCurrent,
   RemoveScheduleGroup
 }                                                from './schedules.actions';
+import * as uuid                                 from 'uuid';
 
 import * as palette from 'google-palette/palette'
 
@@ -108,11 +109,13 @@ export class SchedulesGroupState {
   addCurrentScheduleToGroup(ctx: StateContext<SchedulesGroupStateModel>, className: any) {
     let currentSchedule: ScheduleGroupModel = Object.assign({}, ctx.getState().currentSchedule);
     let scheduleGroupCount: number = ctx.getState().scheduleGroupCount;
+    currentSchedule.UUID = uuid.v4();
     scheduleGroupCount++;
     let colors = SchedulesGroupState.getColorsArray(scheduleGroupCount);
     currentSchedule.schedules.forEach(schedule => {
       schedule.setName(className.className);
       schedule.color = colors[scheduleGroupCount - 1];
+      schedule.parentUUID = currentSchedule.UUID;
     });
     let scheduleGroups: ScheduleGroupModel[] = ctx.getState().scheduleGroups;
     scheduleGroups.push(currentSchedule);

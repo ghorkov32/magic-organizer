@@ -18,14 +18,15 @@ import { MccTimerPickerModule }             from 'material-community-components'
 import { MatCardModule, MatInputModule }    from '@angular/material';
 import { MatButtonModule }                  from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SchedulesGroupState }           from './states/schedules/schedules.state';
-import { SchedulePermutationsState }     from './states/schedule-permutations/schedule-permutations.state';
-import { NgxsModule }                    from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { MatIconModule }                 from '@angular/material/icon';
-import { CreatedClassComponent }         from './components/schedules-dashboard/added-classes/created-class/created-class.component';
-import { NgxsStoragePluginModule }       from '@ngxs/storage-plugin';
-import { DayOfTheWeekPipe }              from './pipes/day-of-the-week.pipe';
+import { SchedulesGroupState }              from './states/schedules/schedules.state';
+import { SchedulePermutationsState }        from './states/schedule-permutations/schedule-permutations.state';
+import { NgxsModule }                       from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule }    from '@ngxs/devtools-plugin';
+import { MatIconModule }                    from '@angular/material/icon';
+import { CreatedClassComponent }            from './components/schedules-dashboard/added-classes/created-class/created-class.component';
+import { NgxsStoragePluginModule }          from '@ngxs/storage-plugin';
+import { DayOfTheWeekPipe }                 from './pipes/day-of-the-week.pipe';
+import { NgxsSelectSnapshotModule }         from '@ngxs-labs/select-snapshot';
 
 const ANGULAR_MODULES = [
   BrowserModule,
@@ -59,7 +60,8 @@ const STATES = [
 const NGXS_IMPORTS = [
   NgxsModule.forRoot(STATES),
   NgxsReduxDevtoolsPluginModule.forRoot(),
-  NgxsStoragePluginModule.forRoot()
+  NgxsStoragePluginModule.forRoot(),
+  NgxsSelectSnapshotModule.forRoot()
 ];
 
 @NgModule({

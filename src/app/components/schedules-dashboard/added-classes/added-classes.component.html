@@ -14,8 +14,16 @@
     </div>
   </mat-card-content>
   <mat-card-footer>
-    <div *ngIf="(addedClasses$ | async)" class="card-footer-content" i18n>
-      You have a total of {{(addedClasses$ | async).length}} classes to schedule
+    <div fxFlex
+         fxLayout="column"
+         fxLayout.gt-xs="row wrap"
+         fxLayoutAlign="space-between">
+      <div *ngIf="(addedClasses$ | async)" class="card-footer-content" i18n>
+        You have a total of {{(addedClasses$ | async).length}} classes to schedule
+      </div>
+      <button (click)="calculate()" i18n mat-raised-button>
+        <mat-icon>refresh</mat-icon>
+      </button>
     </div>
   </mat-card-footer>
 </mat-card>

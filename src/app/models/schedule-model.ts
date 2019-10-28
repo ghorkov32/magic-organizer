@@ -6,6 +6,7 @@ export class ScheduleModel {
   name: string;
   priority: number;
   color: string;
+  parentUUID: string;
 
   constructor(UUID: string, dateFrom: Date, dateTo: Date,
               dayOfTheWeek: number) {
@@ -31,8 +32,8 @@ export class ScheduleModel {
     return false;
   }
 
-  public equals(obj: ScheduleModel): boolean {
-    return this.UUID === obj.UUID || ScheduleModel.dateRangeOverlaps(this, obj) || this.name === obj.name;
+  static equals(obj1: ScheduleModel, obj2: ScheduleModel): boolean {
+    return obj1.UUID === obj2.UUID || ScheduleModel.dateRangeOverlaps(obj1, obj2);
   }
 
 }
