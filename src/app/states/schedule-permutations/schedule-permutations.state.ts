@@ -5,7 +5,7 @@ import { ScheduleGroupModel }                    from '../../models/schedule-gro
 import { GeneratePermutations }                  from './schedule-permutations.actions';
 
 export interface SchedulePermutationsStateModel {
-  items: string[];
+  items: ScheduleGroupModel[][];
 }
 
 @State<SchedulePermutationsStateModel>({
@@ -21,6 +21,11 @@ export class SchedulePermutationsState {
   @Selector()
   public static getState(state: SchedulePermutationsStateModel) {
     return state;
+  }
+
+  @Selector()
+  public static getScheduledPermutations(state: SchedulePermutationsStateModel) {
+    return state.items;
   }
 
   @Action(GeneratePermutations)
@@ -46,7 +51,7 @@ export class SchedulePermutationsState {
       }
     }
     items.sort((a, b) => b.length - a.length);
-    console.log(items);
+    //console.log(items);
     ctx.patchState({
       items: items
     });

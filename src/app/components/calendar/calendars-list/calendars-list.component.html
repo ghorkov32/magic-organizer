@@ -1,3 +1,6 @@
-<p>
-  calendars-list works!
-</p>
+<cdk-virtual-scroll-viewport [itemSize]="(schedulePermutations$ | async).length" maxBufferPx="1200" minBufferPx="600">
+  <div *cdkVirtualFor="let permutation of (schedulePermutations$ | async);let i = index">
+    <app-calendar-view [schedule]="permutation" [startDate]="viewDate"></app-calendar-view>
+  </div>
+</cdk-virtual-scroll-viewport>
+

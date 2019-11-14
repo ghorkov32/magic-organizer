@@ -20,7 +20,7 @@ export class CreatedClassComponent implements OnInit {
 
   @Input()
   set createdClass(value: ScheduleGroupModel) {
-    console.log(JSON.stringify(value));
+    //console.log(JSON.stringify(value));
     this._createdClass = value;
   }
 

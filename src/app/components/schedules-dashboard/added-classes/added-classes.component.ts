@@ -19,7 +19,7 @@ export class AddedClassesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addedClasses$.subscribe(res => console.log(JSON.stringify(res)));
+    //this.addedClasses$.subscribe(res => console.log(JSON.stringify(res)));
   }
 
   calculate() {
