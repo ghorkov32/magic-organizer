@@ -11,6 +11,8 @@ import { CalendarEvent, CalendarEventTimesChangedEvent } from 'angular-calendar'
 export class CalendarViewComponent implements OnInit {
   @Input()
   public startDate: Date;
+  @Input()
+  public endDate: Date;
   refresh: Subject<any> = new Subject();
   public mappedSchedule: CalendarEvent[] = [];
 
@@ -48,6 +50,7 @@ export class CalendarViewComponent implements OnInit {
       }))
     });
     this.mappedSchedule = mapped;
+    this.refresh.next();
   }
 
   eventTimesChanged({
@@ -61,6 +64,24 @@ export class CalendarViewComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  fixDate(date: Date): Date {
+    if (date > this.startDate && date < this.endDate) {
+      return date;
+    } else {
+      if (date < this.startDate) {
+        date.setDate(date.getDate() + (
+                     date.getDay() + 7
+        ));
+        return date;
+      } else {
+        date.setDate(date.getDate() + (
+          date.getDay() - 7
+        ));
+        return date;
+      }
+    }
   }
 
 }

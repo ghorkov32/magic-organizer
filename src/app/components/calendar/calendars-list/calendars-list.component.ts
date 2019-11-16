@@ -17,6 +17,7 @@ export class CalendarsListComponent implements OnInit {
   public schedulePermutations$: Observable<ScheduleGroupModel[][]>;
 
   public viewDate = new Date();
+  public endViewDate = new Date();
 
   constructor() {
   }
@@ -26,6 +27,11 @@ export class CalendarsListComponent implements OnInit {
     this.viewDate.setDate(this.viewDate.getDate() + (
       1 + 7 - this.viewDate.getDay()
     ) % 7);
+    this.viewDate.setHours(0);
+    this.viewDate.setMinutes(0);
+    this.viewDate.setSeconds(0);
+    this.endViewDate = Object.assign(Date, this.viewDate);
+    this.endViewDate.setDate(this.viewDate.getDate() + 7);
   }
 
 }
