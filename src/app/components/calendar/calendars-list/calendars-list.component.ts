@@ -24,13 +24,14 @@ export class CalendarsListComponent implements OnInit {
 
   ngOnInit() {
     this.schedulePermutations$.subscribe(res => console.log(res));
+    // Getting next monday
     this.viewDate.setDate(this.viewDate.getDate() + (
       1 + 7 - this.viewDate.getDay()
     ) % 7);
     this.viewDate.setHours(0);
     this.viewDate.setMinutes(0);
     this.viewDate.setSeconds(0);
-    this.endViewDate = Object.assign(Date, this.viewDate);
+    this.endViewDate = new Date(this.viewDate.getTime());
     this.endViewDate.setDate(this.viewDate.getDate() + 7);
   }
 

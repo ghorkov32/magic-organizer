@@ -1,4 +1,4 @@
-import { Component, Input, OnInit }                      from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation }   from '@angular/core';
 import { ScheduleGroupModel }                            from '../../../../models/schedule-group';
 import { Subject }                                       from 'rxjs';
 import { CalendarEvent, CalendarEventTimesChangedEvent } from 'angular-calendar';
@@ -6,7 +6,15 @@ import { CalendarEvent, CalendarEventTimesChangedEvent } from 'angular-calendar'
 @Component({
   selector: 'app-calendar-view',
   templateUrl: './calendar-view.component.html',
-  styleUrls: ['./calendar-view.component.scss']
+  styleUrls: ['./calendar-view.component.scss'],
+  encapsulation: ViewEncapsulation.None, // hack to get the styles to apply locally
+  styles: [
+      `
+          .my-custom-class span {
+              color: #ff3d7f !important;
+          }
+    `
+  ]
 })
 export class CalendarViewComponent implements OnInit {
   @Input()
@@ -38,7 +46,7 @@ export class CalendarViewComponent implements OnInit {
             primary: schedToMap.color,
             secondary: schedToMap.color
           },
-          //cssClass: string,
+          cssClass: 'my-custom-class',
           draggable: false,
           end: new Date(schedToMap.dateTo),
           id: schedToMap.UUID,

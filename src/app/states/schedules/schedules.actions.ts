@@ -18,7 +18,7 @@ export class AddScheduleToCurrent {
 export class RemoveScheduleGroup {
   public static readonly type = '[SchedulesGroups] Remove group';
 
-  constructor(public index: number) {
+  constructor(public uuid: String) {
   }
 }
 
@@ -31,6 +31,13 @@ export class RemoveScheduleFromCurrent {
 
 export class ClearCurrentSchedule {
   public static readonly type = '[SchedulesGroups] Clear current schedule';
+
+  constructor() {
+  }
+}
+
+export class ClearEverySchedule {
+  public static readonly type = '[SchedulesGroups] Clear every schedule';
 
   constructor() {
   }

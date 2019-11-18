@@ -4,3 +4,10 @@ export class GeneratePermutations {
   constructor() {
   }
 }
+
+export class ClearEveryPermutation {
+  public static readonly type = '[SchedulePermutations] Remove all permutations';
+
+  constructor() {
+  }
+}

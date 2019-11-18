@@ -49,7 +49,7 @@ export class TimeFunctions {
    * date [JS Date()]
    * day_in_week [int] 1 (Mon) - 7 (Sun)
    */
-  static nextWeekdayDate(date: Date, dayInWeek: number) {
+  static nextWeekdayDate(date: Date, dayInWeek: number): Date {
     const ret = new Date(date || new Date());
     ret.setDate(ret.getDate() + (
                 dayInWeek - 1 - ret.getDay() + 7

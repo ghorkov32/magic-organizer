@@ -3,13 +3,13 @@ import { ScheduleGroupModel }                    from 'src/app/models/schedule-g
 import {
   AddCurrentScheduleToGroup,
   AddScheduleToCurrent,
-  ClearCurrentSchedule,
+  ClearCurrentSchedule, ClearEverySchedule,
   RemoveScheduleFromCurrent,
   RemoveScheduleGroup
 }                                                from './schedules.actions';
 import * as uuid                                 from 'uuid';
 
-import * as palette from 'google-palette/palette'
+import * as palette from 'google-palette/palette';
 
 export interface SchedulesGroupStateModel {
   scheduleGroups: ScheduleGroupModel[];
@@ -83,6 +83,19 @@ export class SchedulesGroupState {
   }
 
   /**
+   * Clears the current schedule
+   * @param ctx state context
+   */
+  @Action(ClearEverySchedule)
+  clearEverySchedule(ctx: StateContext<SchedulesGroupStateModel>) {
+    ctx.patchState({
+      currentSchedule: new ScheduleGroupModel([]),
+      scheduleGroups: [],
+      scheduleGroupCount: 0
+    });
+
+  }
+  /**
    * Adds a schedule to current class
    *
    * @param ctx       state context
@@ -93,6 +106,8 @@ export class SchedulesGroupState {
     let currentScheduleToAdd: ScheduleGroupModel = ctx.getState().currentSchedule;
     if (currentScheduleToAdd.addSchedule == null) currentScheduleToAdd = new ScheduleGroupModel([]);
     currentScheduleToAdd.addSchedule(schedule);
+    currentScheduleToAdd.name = schedule.name;
+    currentScheduleToAdd.UUID = uuid.v4();
     ctx.patchState({
       currentSchedule: currentScheduleToAdd
     });
@@ -116,8 +131,10 @@ export class SchedulesGroupState {
       schedule.setName(className.className);
       schedule.color = colors[scheduleGroupCount - 1];
       schedule.parentUUID = currentSchedule.UUID;
+      schedule.dayOfTheWeek = schedule.dateFrom.getDay();
     });
     let scheduleGroups: ScheduleGroupModel[] = ctx.getState().scheduleGroups;
+    currentSchedule.name = className.className;
     scheduleGroups.push(currentSchedule);
     this.clearCurrentSchedule(ctx);
     ctx.patchState({
@@ -129,18 +146,21 @@ export class SchedulesGroupState {
 
   /**
    * Removes a class from added classes
-   * @param ctx
-   * @param index
+   * @param ctx   state context
+   * @param uuid  UUID of class
    */
   @Action(RemoveScheduleGroup)
-  removeScheduleGroup(ctx: StateContext<SchedulesGroupStateModel>, index: number) {
+  removeScheduleGroup(ctx: StateContext<SchedulesGroupStateModel>, uuid: string) {
     let currentScheduleGroup: ScheduleGroupModel[] = Object.assign([], ctx.getState().scheduleGroups);
     (
       currentScheduleGroup as Array<ScheduleGroupModel>
-    ).splice(index, 1);
+    ).splice((
+      currentScheduleGroup as Array<ScheduleGroupModel>
+    ).findIndex(scheduleGroup => scheduleGroup.UUID === uuid), 1);
     ctx.patchState({
       scheduleGroups: currentScheduleGroup
     });
   }
+
 
 }

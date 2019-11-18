@@ -32,6 +32,6 @@ export class CreatedClassComponent implements OnInit {
   }
 
   remove() {
-    this.store.dispatch(new RemoveScheduleGroup(this.index + 1));
+    this.store.dispatch(new RemoveScheduleGroup(this.createdClass.UUID));
   }
 }

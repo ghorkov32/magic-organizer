@@ -1,6 +1,8 @@
 import { ScheduleModel } from './schedule-model';
 
 export class ScheduleGroupModel {
+
+  public name = '';
   public schedules: ScheduleModel[];
   public UUID: string = '';
 
@@ -22,6 +24,6 @@ export class ScheduleGroupModel {
         return true;
       }
     }
-    return obj1.UUID === obj2.UUID;
+    return obj1.name === obj2.name;
   }
 }

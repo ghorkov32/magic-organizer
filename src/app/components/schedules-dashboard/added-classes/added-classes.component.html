@@ -18,11 +18,20 @@
          fxLayout="column"
          fxLayout.gt-xs="row wrap"
          fxLayoutAlign="space-between">
-      <div *ngIf="(addedClasses$ | async)" class="card-footer-content" i18n>
+      <div *ngIf="(addedClasses$ | async)?.length === 0" class="card-footer-content" i18n>
+        You have no classes to schedule. Feel free to add some!
+      </div>
+      <div *ngIf="(addedClasses$ | async)?.length === 1" class="card-footer-content" i18n>
+        You have a single class to schedule. Feel free to add more!
+      </div>
+      <div *ngIf="(addedClasses$ | async)?.length > 1" class="card-footer-content" i18n>
         You have a total of {{(addedClasses$ | async).length}} classes to schedule
       </div>
       <button (click)="calculate()" i18n mat-raised-button>
         <mat-icon>refresh</mat-icon>
+      </button>
+      <button (click)="clearAll()" i18n mat-raised-button>
+        <mat-icon>delete_forever</mat-icon>
       </button>
     </div>
   </mat-card-footer>
