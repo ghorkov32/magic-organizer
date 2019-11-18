@@ -21,14 +21,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SchedulesGroupState }              from './states/schedules/schedules.state';
 import { SchedulePermutationsState }        from './states/schedule-permutations/schedule-permutations.state';
 import { NgxsModule }                       from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { MatIconModule }                 from '@angular/material/icon';
-import { CreatedClassComponent }         from './components/schedules-dashboard/added-classes/created-class/created-class.component';
-import { NgxsStoragePluginModule }       from '@ngxs/storage-plugin';
-import { DayOfTheWeekPipe }              from './pipes/day-of-the-week.pipe';
-import { NgxsSelectSnapshotModule }      from '@ngxs-labs/select-snapshot';
-import { ScrollingModule }               from '@angular/cdk/scrolling';
-import { CalendarViewComponent }         from './components/calendar/calendars-list/calendar-view/calendar-view.component';
+import { NgxsReduxDevtoolsPluginModule }    from '@ngxs/devtools-plugin';
+import { MatIconModule }                    from '@angular/material/icon';
+import { CreatedClassComponent }            from './components/schedules-dashboard/added-classes/created-class/created-class.component';
+import { NgxsStoragePluginModule }          from '@ngxs/storage-plugin';
+import { DayOfTheWeekPipe }                 from './pipes/day-of-the-week.pipe';
+import { NgxsSelectSnapshotModule }         from '@ngxs-labs/select-snapshot';
+import { ScrollingModule }                  from '@angular/cdk/scrolling';
+import { CalendarViewComponent }            from './components/calendar/calendars-list/calendar-view/calendar-view.component';
+import { ServiceWorkerModule }              from '@angular/service-worker';
+import { environment }                      from '../environments/environment';
 
 const ANGULAR_MODULES = [
   BrowserModule,
@@ -90,6 +92,7 @@ const NGXS_IMPORTS = [
     ...MATERIAL_MODULES,
     ...OTHER_MODULES,
     ...NGXS_IMPORTS,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
   ],
   providers: [],
   bootstrap: [AppComponent]
