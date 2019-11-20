@@ -1,0 +1,29 @@
+<div
+  fxFlex
+  fxLayout="row">
+  <div [ngSwitch]="locale">
+    <span *ngSwitchCase="'en'" class="flag-icon flag-icon-us"></span>
+    <span *ngSwitchCase="'es'" class="flag-icon flag-icon-es"></span>
+    <span *ngSwitchCase="'pt'" class="flag-icon flag-icon-br"></span>
+    <span *ngSwitchCase="'fr'" class="flag-icon flag-icon-fr"></span>
+    <span *ngSwitchCase="'it'" class="flag-icon flag-icon-it"></span>
+    <span *ngSwitchCase="'de'" class="flag-icon flag-icon-de"></span>
+    <span *ngSwitchCase="'ru'" class="flag-icon flag-icon-ru"></span>
+  </div>
+  <mat-select (selectionChange)="emitSelection()" [(value)]="locale">
+    <mat-option i18n value="en"><span class="flag-icon flag-icon-us"></span>English
+    </mat-option>
+    <mat-option i18n value="es"><span class="flag-icon flag-icon-es"></span>Español
+    </mat-option>
+    <mat-option i18n value="pt"><span class="flag-icon flag-icon-br"></span>Português
+    </mat-option>
+    <mat-option i18n value="fr"><span class="flag-icon flag-icon-fr"></span>Français
+    </mat-option>
+    <mat-option i18n value="it"><span class="flag-icon flag-icon-it"></span>Italiano
+    </mat-option>
+    <mat-option i18n value="de"><span class="flag-icon flag-icon-de"></span>Deutsch
+    </mat-option>
+    <mat-option i18n value="ru"><span class="flag-icon flag-icon-ru"></span>русский
+    </mat-option>
+  </mat-select>
+</div>

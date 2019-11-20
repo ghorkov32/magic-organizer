@@ -1,3 +1,15 @@
+<mat-toolbar>
+  <div
+    fxFlex="grow"
+    fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutAlign.lt-sm="center center">
+    <span fxFlex="grow"
+          i18n>Welcome to the Magic Organizer</span>
+    <app-language-select
+      (onLocaleSelected)="changeLanguage($event)" fxFlex="1 1 10%"></app-language-select>
+  </div>
+</mat-toolbar>
 <app-schedules-dashboard></app-schedules-dashboard>
 <app-calendar-dashboard></app-calendar-dashboard>
 

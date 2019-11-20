@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+//@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~material-community-components/theming';
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 @include mat-core();
@@ -34,4 +34,12 @@ mat-card {
 
 button.mat-raised-button {
   margin: 5px;
+}
+
+.mat-icon {
+  font-family: 'Material Icons' !important;
+}
+
+.material-icon {
+  font-family: 'Material Icons' !important;
 }

@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title-group>
-    <mat-card-title>Added classes</mat-card-title>
-    <mat-card-subtitle>Here are your added classes to prepare the schedule</mat-card-subtitle>
+    <mat-card-title i18n>Added classes</mat-card-title>
+    <mat-card-subtitle i18n>Here are your added classes to prepare the schedule</mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content>
     <div
@@ -27,10 +27,10 @@
       <div *ngIf="(addedClasses$ | async)?.length > 1" class="card-footer-content" i18n>
         You have a total of {{(addedClasses$ | async).length}} classes to schedule
       </div>
-      <button (click)="calculate()" i18n mat-raised-button>
+      <button (click)="calculate()" mat-raised-button>
         <mat-icon>refresh</mat-icon>
       </button>
-      <button (click)="clearAll()" i18n mat-raised-button>
+      <button (click)="clearAll()" mat-raised-button>
         <mat-icon>delete_forever</mat-icon>
       </button>
     </div>

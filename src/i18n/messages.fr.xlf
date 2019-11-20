@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version='1.2' xmlns='urn:oasis:names:tc:xliff:document:1.2'>
+  <file original='ng2.template' datatype='plaintext' tool='manual' source-language='en'>
+    <body>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='2fd70ab6cebec69116ecf08321f3d8813948e055'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Add a new class</source>
+        <target xml:lang='fr'>Ajouter une nouvelle classe</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='87190214037599d4049eab73be1339c6974245dc'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Set the available schedules for your class</source>
+        <target xml:lang='fr'>Définissez les horaires disponibles pour votre classe</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='8611a0d0fe3a53ce68f4e6f0f5624d41950b731c'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Current Schedule For this class</source>
+        <target xml:lang='fr'>Horaire actuel pour cette classe</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='7a27fe0127c1c9624a72765e7fcfbaf9693f1092'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Select day of the week and time</source>
+        <target xml:lang='fr'>Sélectionnez le jour de la semaine et l'heure</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='6ff1bf102aecc76bfe906be681b8e3daed575266'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Add Class</source>
+        <target xml:lang='fr'>Ajouter une classe</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='dd0ee65b8810799b80e7c3dc222c6a6fcce552c3'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Clear class</source>
+        <target xml:lang='fr'>Effacer classe</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='b155dff463ae60892affabf5a0e4f3e6f807888a'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Added classes</source>
+        <target xml:lang='fr'>Classes ajoutées</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/added-classes/added-classes.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='7d9bae0d28ffdbdb3bbc8ccf009bed8b82609f2d'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Here are your added classes to prepare the schedule</source>
+        <target xml:lang='fr'>Voici vos cours ajoutés pour préparer le planning</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/added-classes/added-classes.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='32ae47939278ae8f27b9410df842299a3392d75f'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>You have no classes to schedule. Feel free to add some!</source>
+        <target xml:lang='fr'>Vous n'avez pas de cours à programmer. N'hésitez pas à en ajouter!</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/added-classes/added-classes.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='4629d18754383485c17526cc4e8768a260725ee3'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>You have a single class to schedule. Feel free to add more!</source>
+        <target xml:lang='fr'>Vous avez une seule classe à planifier. Ne hésitez pas à ajouter plus!</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/added-classes/added-classes.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='bf858d5c125ca54d5cb2f3b6f58c1ce56e48f3ca'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>You have a total of
+          <x clone='yes' id='INTERPOLATION' equiv-text='{{(addedClasses$ | async).length}}'/>
+          classes to schedule
+        </source>
+        <target xml:lang='fr'>Vous avez un total de
+          <x clone='yes' id='INTERPOLATION' equiv-text='{{(addedClasses$ | async).length}}'/>
+          classes à programmer
+        </target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/added-classes/added-classes.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='36e37745bab26d8c9ff2c9b3e1e1d003394002e1'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Day of the week</source>
+        <target xml:lang='fr'>Jour de la semaine</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='a43c57a7cbebf57eb33a2eae5e994c91d9887596'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Monday</source>
+        <target xml:lang='fr'>Lundi</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='48a2a35957ce394eb2c59ae35c99642360af70ee'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Tuesday</source>
+        <target xml:lang='fr'>Mardi</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='b0af441f9ba8b82952b9ec10fb8c62e8fec67df9'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Wednesday</source>
+        <target xml:lang='fr'>Mercredi</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='55c583b99c809818ec27df065ccf05357a6ac10b'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Thursday</source>
+        <target xml:lang='fr'>Jeudi</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='e91b54925dc5f490753f60f53ef6f8b4609e6215'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Friday</source>
+        <target xml:lang='fr'>Vendredi</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='c0d2dd391a3eca8e841a5d0e035cd268280eb68e'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Saturday</source>
+        <target xml:lang='fr'>samedi</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='8339364b054610983b7f2334bb807fff7613bddf'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Sunday</source>
+        <target xml:lang='fr'>dimanche</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='34167c103123c3ef8f47e5305188fa4337f92a1e'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Add</source>
+        <target xml:lang='fr'>Ajouter</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='a7af6ccaa40d9e1782ef1aaa15af234382d9dead'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Clear</source>
+        <target xml:lang='fr'>Effacer</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='49cb1d646fb8d3c72cdf616516ecc0e8c1151bd0'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Start time of class must be before than end time</source>
+        <target xml:lang='fr'>L'heure de début du cours doit être antérieure à l'heure de fin</target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='207fdadeebe02c7f014279a6e09163ff2889eb6b'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>You have a total of
+          <x clone='yes' id='INTERPOLATION' equiv-text='{{createdClass.schedules.length}}'/>
+          schedules for this class
+        </source>
+        <target xml:lang='fr'>Vous avez un total de
+          <x clone='yes' id='INTERPOLATION' equiv-text='{{createdClass.schedules.length}}'/>
+          horaires pour cette classe
+        </target>
+        <context-group purpose='location'>
+          <context match-mandatory='no' context-type='sourcefile'>
+            app/components/schedules-dashboard/added-classes/created-class/created-class.component.html
+          </context>
+          <context match-mandatory='no' context-type='linenumber'>32</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -8,7 +8,7 @@
   >
     <div>
       <mat-form-field>
-        <mat-label>Day of the week</mat-label>
+        <mat-label i18n>Day of the week</mat-label>
         <mat-select [errorStateMatcher]="errorStateMatcher" formControlName="dayOfTheWeek">
           <mat-option i18n value="1">Monday</mat-option>
           <mat-option i18n value="2">Tuesday</mat-option>
@@ -73,5 +73,12 @@
       </div>
     </div>
   </form>
+
+  <!--uncomment for testing propourses
+      this creates 5 classes with random times to sort
+      -->
+  <!--<button (click)="setUpTestCases()" mat-raised-button>
+    <mat-icon>build</mat-icon>
+  </button>-->
 </div>
 

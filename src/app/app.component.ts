@@ -19,4 +19,10 @@ export class AppComponent {
       });
     }
   }
+
+  changeLanguage($event: string) {
+    if (window.location.href.slice(window.location.href.length - 3, window.location.href.length - 1) !== $event) {
+      window.location.replace('/magic-organizer/' + $event + '/index.html');
+    }
+  }
 }
