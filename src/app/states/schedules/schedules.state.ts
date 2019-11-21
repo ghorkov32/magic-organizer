@@ -3,7 +3,8 @@ import { ScheduleGroupModel }                    from 'src/app/models/schedule-g
 import {
   AddCurrentScheduleToGroup,
   AddScheduleToCurrent,
-  ClearCurrentSchedule, ClearEverySchedule,
+  ClearCurrentSchedule,
+  ClearEverySchedule,
   RemoveScheduleFromCurrent,
   RemoveScheduleGroup
 }                                                from './schedules.actions';
@@ -147,16 +148,12 @@ export class SchedulesGroupState {
   /**
    * Removes a class from added classes
    * @param ctx   state context
-   * @param uuid  UUID of class
+   * @param payload  UUID of class
    */
   @Action(RemoveScheduleGroup)
-  removeScheduleGroup(ctx: StateContext<SchedulesGroupStateModel>, uuid: string) {
+  removeScheduleGroup(ctx: StateContext<SchedulesGroupStateModel>, payload: any) {
     let currentScheduleGroup: ScheduleGroupModel[] = Object.assign([], ctx.getState().scheduleGroups);
-    (
-      currentScheduleGroup as Array<ScheduleGroupModel>
-    ).splice((
-      currentScheduleGroup as Array<ScheduleGroupModel>
-    ).findIndex(scheduleGroup => scheduleGroup.UUID === uuid), 1);
+    currentScheduleGroup = currentScheduleGroup.filter(scheduleGroup => scheduleGroup.UUID !== payload.uuid);
     ctx.patchState({
       scheduleGroups: currentScheduleGroup
     });

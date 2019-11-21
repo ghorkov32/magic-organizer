@@ -13,7 +13,7 @@
       <mat-card
         [ngStyle]="{'background': '#' + schedule.color}">
         <mat-card-title-group>
-          <mat-card-title class="sub-card-title">{{schedule.dayOfTheWeek | dayOfTheWeek}}</mat-card-title>
+          <mat-card-title class="sub-card-title">{{schedule.dateFrom | date:'EEEE':'':locale }}</mat-card-title>
         </mat-card-title-group>
         <mat-card-content>
           <div

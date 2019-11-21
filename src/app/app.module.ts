@@ -1,5 +1,6 @@
-import { BrowserModule }       from '@angular/platform-browser';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule }               from '@angular/platform-browser';
+import { LOCALE_ID, NgModule }         from '@angular/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 import { AppComponent }                                    from './app.component';
 import { BrowserAnimationsModule }                         from '@angular/platform-browser/animations';
@@ -14,7 +15,6 @@ import { AddedClassesComponent }                           from './components/sc
 import { DayTimePickerComponent }                          from './components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component';
 import { MatSelectModule }                                 from '@angular/material/select';
 import { FlexLayoutModule }                                from '@angular/flex-layout';
-import { MccTimerPickerModule }                            from 'material-community-components';
 import { MatCardModule, MatInputModule, MatToolbarModule } from '@angular/material';
 import { MatButtonModule }                                 from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule }                from '@angular/forms';
@@ -41,7 +41,7 @@ import localeRu                                            from '@angular/common
 import localeEn                                            from '@angular/common/locales/en';
 import { LanguageSelectComponent }                         from './components/language-select/language-select.component';
 
-
+// Locale registration for languages
 registerLocaleData(localeFr, 'fr');
 registerLocaleData(localeDe, 'de');
 registerLocaleData(localeEs, 'es');
@@ -58,17 +58,6 @@ const ANGULAR_MODULES = [
   ScrollingModule
 ];
 
-const I18N = [
-  registerLocaleData,
-  localeFr,
-  localeDe,
-  localeEs,
-  localeIt,
-  localePt,
-  localeRu,
-  localeEn,
-];
-
 const MATERIAL_MODULES = [
   MatSelectModule,
   MatInputModule,
@@ -83,12 +72,12 @@ const OTHER_MODULES = [
     provide: DateAdapter,
     useFactory: adapterFactory
   }),
-  MccTimerPickerModule,
   FlexLayoutModule,
   CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory
   }),
+  NgxMaterialTimepickerModule
 ];
 
 const STATES = [

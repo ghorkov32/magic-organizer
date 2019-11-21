@@ -66,8 +66,8 @@ export class DayTimePickerComponent implements OnInit {
   /**
    * Uncomment for testing
    */
-  /*  setUpTestCases() {
-      let tool = new ScheduleAdderTestingTool(this.store);
-      tool.setUpTestCases();
-    }*/
+  /*    setUpTestCases() {
+        let tool = new ScheduleAdderTestingTool(this.store);
+        tool.setUpTestCases();
+      }*/
 }

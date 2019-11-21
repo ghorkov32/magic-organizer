@@ -2,7 +2,8 @@ echo "building en"
 ng build --output-path=dist/magic-organizer/en \
 --aot \
 --prod \
---base-href .
+--base-href . \
+--source-map=false
 \
 for lang in de es fr it pt ru; do
   \
@@ -13,7 +14,8 @@ for lang in de es fr it pt ru; do
   --base-href . \
   --i18n-file=src/i18n/messages.$lang.xlf \
   --i18n-format=xlf \
-  --i18n-locale=$lang
+  --i18n-locale=$lang \
+  --source-map=false
   \
 done
 \

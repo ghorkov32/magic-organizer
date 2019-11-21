@@ -13,6 +13,9 @@ export class CreatedClassComponent implements OnInit {
 
   @Input()
   private index: number;
+  locale: string = window.location.href.match('\/([a-z][a-z])\/') ?
+    window.location.href.match('\/([a-z][a-z])\/')[1] :
+    'en';
 
   get createdClass(): ScheduleGroupModel {
     return this._createdClass;
@@ -20,7 +23,6 @@ export class CreatedClassComponent implements OnInit {
 
   @Input()
   set createdClass(value: ScheduleGroupModel) {
-    //console.log(JSON.stringify(value));
     this._createdClass = value;
   }
 

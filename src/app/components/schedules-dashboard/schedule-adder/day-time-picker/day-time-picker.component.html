@@ -5,6 +5,7 @@
     fxLayout="row"
     fxLayout.sm="column"
     fxLayout.xs="column"
+    fxLayoutAlign="center baseline"
   >
     <div>
       <mat-form-field>
@@ -21,40 +22,12 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field>
-        <mcc-timer-picker
-          [mccConnectedTimerPickerOrigin]="startTime"
-          [mccTimerPickerFormat]="'24'"
-          mccConnectedTimerPicker
-        ></mcc-timer-picker>
-        <input
-          #startTime="mccTimerPickerOrigin"
-          [errorStateMatcher]="errorStateMatcher"
-          formControlName="startTime"
-          i18n
-          matInput
-          mccTimerPickerOrigin
-          placeholder="Start time"
-        />
-      </mat-form-field>
+      <ngx-timepicker-field [format]="24"
+                            formControlName="startTime"></ngx-timepicker-field>
     </div>
     <div>
-      <mat-form-field>
-        <mcc-timer-picker
-          [mccConnectedTimerPickerOrigin]="endTime"
-          [mccTimerPickerFormat]="'24'"
-          mccConnectedTimerPicker
-        ></mcc-timer-picker>
-        <input
-          #endTime="mccTimerPickerOrigin"
-          [errorStateMatcher]="errorStateMatcher"
-          formControlName="endTime"
-          i18n
-          matInput
-          mccTimerPickerOrigin
-          placeholder="End time"
-        />
-      </mat-form-field>
+      <ngx-timepicker-field [format]="24"
+                            formControlName="endTime"></ngx-timepicker-field>
     </div>
     <div
       class="buttons-container"
@@ -77,8 +50,8 @@
   <!--uncomment for testing propourses
       this creates 5 classes with random times to sort
       -->
-  <!--<button (click)="setUpTestCases()" mat-raised-button>
-    <mat-icon>build</mat-icon>
-  </button>-->
+  <!--  <button (click)="setUpTestCases()" mat-raised-button>
+      <mat-icon>build</mat-icon>
+    </button>-->
 </div>
 
