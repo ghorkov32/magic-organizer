@@ -1,3 +1,11 @@
+<div *ngIf="(isProcessing$ | async)"
+     class="spinner-container"
+     fxFlex="grow"
+     fxLayoutAlign="center">
+  <mat-spinner
+    mode="indeterminate">
+  </mat-spinner>
+</div>
 <cdk-virtual-scroll-viewport [itemSize]="(schedulePermutations$ | async).length" maxBufferPx="1200" minBufferPx="600">
   <div *cdkVirtualFor="let permutation of (schedulePermutations$ | async);let i = index">
     <app-calendar-view [schedule]="permutation" [startDate]="viewDate"></app-calendar-view>

@@ -1,4 +1,3 @@
-import * as _                     from 'underscore';
 import { FormGroup, ValidatorFn } from '@angular/forms';
 
 export class TimeFunctions {
@@ -32,19 +31,6 @@ export class TimeFunctions {
   }
 
   /**
-   * Returns the cartesian product of an array of arrays
-   */
-  static cartesianProductOf() {
-    return _.reduce(arguments, (a, b) => {
-      return _.flatten(_.map(a, (x) => {
-        return _.map(b, (y) => {
-          return x.concat([y]);
-        });
-      }), true);
-    }, [[]]);
-  }
-
-  /**
    * params
    * date [JS Date()]
    * day_in_week [int] 1 (Mon) - 7 (Sun)
@@ -52,7 +38,7 @@ export class TimeFunctions {
   static nextWeekdayDate(date: Date, dayInWeek: number): Date {
     const ret = new Date(date || new Date());
     ret.setDate(ret.getDate() + (
-                dayInWeek - 1 - ret.getDay() + 7
+                dayInWeek - ret.getDay() + 7
     ) % 7 + 1);
     return ret;
   }

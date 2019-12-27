@@ -49,7 +49,7 @@
       <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='6ff1bf102aecc76bfe906be681b8e3daed575266'
                   size-unit='pixel' translate='yes' space='default'>
         <source>Add Class</source>
-        <target xml:lang='es'>Add Class</target>
+        <target xml:lang='es'>Agregar clase</target>
         <context-group purpose='location'>
           <context match-mandatory='no' context-type='sourcefile'>
             app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html

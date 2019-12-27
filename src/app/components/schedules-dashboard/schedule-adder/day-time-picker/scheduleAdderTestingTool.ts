@@ -30,7 +30,7 @@ export class ScheduleAdderTestingTool {
 
   setUpTestCases() {
     this.classSub = of(true)
-      .pipe(delay(1000), map(res => this.createRandomClass(Math.floor(Math.random() * 3))))
+      .pipe(delay(1000), map(() => this.createRandomClass(Math.floor(Math.random() * 3))))
       .pipe(repeat(5))
       .subscribe(res => {
         if (res) {
@@ -52,11 +52,11 @@ export class ScheduleAdderTestingTool {
   createRandomSchedule(): ScheduleModel {
     let nextMondayDate = new Date();
     nextMondayDate.setDate(nextMondayDate.getDate() + (
-      1 + 7 - nextMondayDate.getDay()
+      7 - nextMondayDate.getDay()
     ) % 7);
     let endMondayDate = new Date(nextMondayDate.getTime());
     endMondayDate.setDate(endMondayDate.getDate() + (
-                          nextMondayDate.getDay() + 6
+                          nextMondayDate.getDay() + 7
     ));
 
     let dates = this.randomDateStartEnd(nextMondayDate, endMondayDate);
@@ -71,13 +71,12 @@ export class ScheduleAdderTestingTool {
     dateEnd.setSeconds(0);
 
 
-    const scheduleModel = new ScheduleModel(
+    return new ScheduleModel(
       uuidForSchedule,
       dateStart,
       dateEnd,
       dateStart.getDay()
-    );
-    return scheduleModel
+    )
   }
 
   randomDateStartEnd(start, end): Date[] {

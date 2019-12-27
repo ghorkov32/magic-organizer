@@ -138,6 +138,7 @@ export class SchedulesGroupState {
     currentSchedule.name = className.className;
     scheduleGroups.push(currentSchedule);
     this.clearCurrentSchedule(ctx);
+    console.log(scheduleGroups);
     ctx.patchState({
       scheduleGroups: scheduleGroups,
       scheduleGroupCount: scheduleGroupCount
