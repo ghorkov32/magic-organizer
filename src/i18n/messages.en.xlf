@@ -2,6 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="b0b641579efe3adba565cbd417b58a3174bebe66" datatype="html">
+        <source>Welcome to the Magic Organizer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="2fd70ab6cebec69116ecf08321f3d8813948e055" datatype="html">
         <source>Add a new class</source>
         <context-group purpose="location">
@@ -9,6 +16,15 @@
             app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
           </context>
           <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4110c801fcf7bbaafd92c1d304a9515fbbad79c8" datatype="html">
+        <source>Class name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="87190214037599d4049eab73be1339c6974245dc" datatype="html">
@@ -120,7 +136,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a43c57a7cbebf57eb33a2eae5e994c91d9887596" datatype="html">
@@ -129,7 +145,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="48a2a35957ce394eb2c59ae35c99642360af70ee" datatype="html">
@@ -138,7 +154,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="b0af441f9ba8b82952b9ec10fb8c62e8fec67df9" datatype="html">
@@ -147,7 +163,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="55c583b99c809818ec27df065ccf05357a6ac10b" datatype="html">
@@ -156,7 +172,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e91b54925dc5f490753f60f53ef6f8b4609e6215" datatype="html">
@@ -165,7 +181,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c0d2dd391a3eca8e841a5d0e035cd268280eb68e" datatype="html">
@@ -174,7 +190,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8339364b054610983b7f2334bb807fff7613bddf" datatype="html">
@@ -183,7 +199,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="34167c103123c3ef8f47e5305188fa4337f92a1e" datatype="html">
@@ -194,7 +210,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a7af6ccaa40d9e1782ef1aaa15af234382d9dead" datatype="html">
@@ -205,7 +221,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="49cb1d646fb8d3c72cdf616516ecc0e8c1151bd0" datatype="html">
@@ -216,7 +232,7 @@
           <context context-type="sourcefile">
             app/components/schedules-dashboard/schedule-adder/day-time-picker/day-time-picker.component.html
           </context>
-          <context context-type="linenumber">71</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="207fdadeebe02c7f014279a6e09163ff2889eb6b" datatype="html">

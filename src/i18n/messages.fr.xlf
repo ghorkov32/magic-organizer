@@ -2,6 +2,26 @@
 <xliff version='1.2' xmlns='urn:oasis:names:tc:xliff:document:1.2'>
   <file original='ng2.template' datatype='plaintext' tool='manual' source-language='en'>
     <body>
+      <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='b0b641579efe3adba565cbd417b58a3174bebe66'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Welcome to the Magic Organizer</source>
+        <target xml:lang='fr'>Bienvenue dans L'organisateur Magique</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4110c801fcf7bbaafd92c1d304a9515fbbad79c8" reformat='yes' datatype='html' merged-trans='yes'
+                  size-unit='pixel' translate='yes' space='default'>
+        <source>Class name</source>
+        <target xml:lang='fr'>Nom du cours</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            app/components/schedules-dashboard/schedule-adder/schedule-adder.component.html
+          </context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
       <trans-unit reformat='yes' datatype='html' merged-trans='yes' id='2fd70ab6cebec69116ecf08321f3d8813948e055'
                   size-unit='pixel' translate='yes' space='default'>
         <source>Add a new class</source>

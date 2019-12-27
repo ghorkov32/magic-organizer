@@ -50,7 +50,7 @@
   <!--uncomment for testing propourses
       this creates 5 classes with random times to sort
       -->
-  <button (click)="setUpTestCases()" mat-raised-button>
+  <button (click)="setUpTestCases()" *ngIf="!isProduction()" mat-raised-button>
       <mat-icon>build</mat-icon>
   </button>
 </div>

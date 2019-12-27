@@ -22,7 +22,8 @@ function format() {
 function upload_to_github() {
   VERSION="$(git log -1 --pretty=%B | egrep -o '[0-9]\.[0-9]+\.[0-9]+')" # Getting project version and moving everything
   echo "Moving built project to github page repo"
-  mv ./dist/magic-organizer/ ../ghorkov32.github.io/magic-organizer
+  rm -rf ../ghorkov32.github.io/magic-organizer
+  cp -r ./dist/magic-organizer/ ../ghorkov32.github.io
   cd ../ghorkov32.github.io || exit
   git checkout --orphan newBranch
   git add -A # Add all files and commit them
@@ -42,6 +43,7 @@ echo "]" >>log.json
 
 # Deploy to ghorkov32.github.io
 if [ "$1" == "--update-io" ]; then
+  echo "Chose to upload to github"
   upload_to_github
 fi
 

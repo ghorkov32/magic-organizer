@@ -1,12 +1,13 @@
 import { Component, OnInit }                  from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Store }                             from '@ngxs/store';
-import { ScheduleModel }                     from '../../../../models/schedule-model';
-import { AddScheduleToCurrent }              from '../../../../states/schedules/schedules.actions';
-import * as uuid                             from 'uuid';
-import { CommonErrorStateMatcher }           from '../../../../error-state-matchers/common-error-state-matcher.class';
-import { TimeFunctions, TimeRangeValidator } from '../../../../common/time-functions';
-import { ScheduleAdderTestingTool }          from './scheduleAdderTestingTool';
+import { Store }                              from '@ngxs/store';
+import { ScheduleModel }                      from '../../../../models/schedule-model';
+import { AddScheduleToCurrent }               from '../../../../states/schedules/schedules.actions';
+import * as uuid                              from 'uuid';
+import { CommonErrorStateMatcher }            from '../../../../error-state-matchers/common-error-state-matcher.class';
+import { TimeFunctions, TimeRangeValidator }  from '../../../../common/time-functions';
+import { ScheduleAdderTestingTool }           from './scheduleAdderTestingTool';
+import { environment }                        from '../../../../../environments/environment';
 
 
 @Component({
@@ -70,5 +71,9 @@ export class DayTimePickerComponent implements OnInit {
   setUpTestCases() {
         let tool = new ScheduleAdderTestingTool(this.store);
         tool.setUpTestCases();
+  }
+
+  isProduction() {
+    return environment.production;
   }
 }
